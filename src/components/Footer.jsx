@@ -1,9 +1,10 @@
 import { SITE } from '../data/content.js'
 import { useLang } from '../i18n/LanguageContext.jsx'
 import maraLogo from '../assets/mara-logo.svg'
+import maraNumber from '../assets/mara-number.svg'
 import jpLogo from '../assets/jp-logo.svg'
 
-const BADGE_LOGOS = { mara: maraLogo, jp: jpLogo }
+const BADGE_LOGOS = { mara: maraLogo, maraNumber, jp: jpLogo }
 
 export default function Footer() {
   const { t } = useLang()
@@ -43,17 +44,27 @@ export default function Footer() {
           </div>
 
           <div className="footer__badges">
-            {footer.badges.map((b) => (
-              <div className="footer-badge" key={b.label}>
-                <div className="footer-badge__text">
-                  <div className="footer-badge__label">{b.label}</div>
-                  <div className="footer-badge__value">{b.value}</div>
+            {footer.badges.map((b) =>
+              b.image ? (
+                <div className="footer-badge footer-badge--image" key={b.label}>
+                  <img className="footer-badge__img" src={BADGE_LOGOS[b.image]} alt={b.label} />
                 </div>
-                {b.logo && BADGE_LOGOS[b.logo] && (
-                  <img className="footer-badge__logo" src={BADGE_LOGOS[b.logo]} alt={`${b.label} logo`} />
-                )}
-              </div>
-            ))}
+              ) : (
+                <div className="footer-badge" key={b.label}>
+                  <div className="footer-badge__text">
+                    <div className="footer-badge__label">{b.label}</div>
+                    <div className="footer-badge__value">{b.value}</div>
+                  </div>
+                  {b.logo && BADGE_LOGOS[b.logo] && (
+                    <img
+                      className={`footer-badge__logo ${b.logo === 'mara' ? 'footer-badge__logo--wide' : ''}`}
+                      src={BADGE_LOGOS[b.logo]}
+                      alt={`${b.label} logo`}
+                    />
+                  )}
+                </div>
+              )
+            )}
           </div>
         </div>
 

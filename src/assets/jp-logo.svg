@@ -1,7 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Justice of the Peace">
-  <!-- 임시 배지 — 공식 NSW JP 로고 파일 확보 후 이 파일을 교체하세요 -->
-  <circle cx="32" cy="32" r="30" fill="none" stroke="#C9A96E" stroke-width="2.5"/>
-  <circle cx="32" cy="32" r="24" fill="none" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
-  <text x="32" y="36" text-anchor="middle" font-family="Georgia, serif" font-size="17" font-weight="bold" fill="#C9A96E">JP</text>
-  <text x="32" y="46" text-anchor="middle" font-family="Georgia, serif" font-size="6" fill="#C9A96E" letter-spacing="0.5">NSW</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="NSW Justices Association">
+  <!-- NSW Justices Association 크레스트 — 배경 제거·다크 푸터용 단색 버전. 공식 파일 확보 시 교체 가능 -->
+  <defs>
+    <path id="jp-arc-top" d="M16 68 A 44 44 0 1 1 104 68" fill="none"/>
+  </defs>
+  <circle cx="60" cy="60" r="57" fill="none" stroke="#F7F3EC" stroke-width="2.5"/>
+  <circle cx="60" cy="60" r="38" fill="none" stroke="#F7F3EC" stroke-width="1"/>
+  <text font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="bold" letter-spacing="1.5" fill="#F7F3EC">
+    <textPath href="#jp-arc-top" startOffset="50%" text-anchor="middle">NSW JUSTICES ASSOCIATION</textPath>
+  </text>
+  <text x="60" y="106" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="bold" letter-spacing="2" fill="#F7F3EC">1911</text>
+  <g stroke="#F7F3EC" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M50 38 L50 32 L54 36 L57 30 L60 35 L63 30 L66 36 L70 32 L70 38 Z" fill="#F7F3EC" stroke-width="1"/>
+    <line x1="60" y1="44" x2="60" y2="78"/>
+    <line x1="42" y1="50" x2="78" y2="50"/>
+    <path d="M36 50 L42 62 L48 50 M36 62 A 6 5 0 0 0 48 62" stroke-width="1.6"/>
+    <path d="M72 50 L78 62 L84 50 M72 62 A 6 5 0 0 0 84 62" stroke-width="1.6"/>
+    <line x1="50" y1="82" x2="70" y2="82"/>
+  </g>
 </svg>

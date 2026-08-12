@@ -241,6 +241,7 @@ export const CONTENT = {
       firmHeading: 'Firm',
       badges: [
         { label: 'Registered Migration Agent', value: SITE.marn, logo: 'mara' },
+        { label: `Migration Agents Registration Number ${SITE.marn.replace('MARN ', '')}`, image: 'maraNumber' },
         { label: 'Justice of the Peace', value: SITE.jpNumber, logo: 'jp' },
         { label: 'Legal Practice', value: 'NSW Law Society' },
       ],
@@ -473,6 +474,7 @@ export const CONTENT = {
       firmHeading: 'Firm',
       badges: [
         { label: 'Registered Migration Agent', value: SITE.marn, logo: 'mara' },
+        { label: `Migration Agents Registration Number ${SITE.marn.replace('MARN ', '')}`, image: 'maraNumber' },
         { label: 'Justice of the Peace', value: SITE.jpNumber, logo: 'jp' },
         { label: 'Legal Practice', value: 'NSW Law Society' },
       ],

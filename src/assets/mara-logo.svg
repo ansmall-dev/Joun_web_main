@@ -1,7 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MARA">
-  <!-- 임시 배지 — 공식 MARA(OMARA) 로고 파일 확보 후 이 파일을 교체하세요 -->
-  <circle cx="32" cy="32" r="30" fill="none" stroke="#C9A96E" stroke-width="2.5"/>
-  <circle cx="32" cy="32" r="24" fill="none" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
-  <text x="32" y="30" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="bold" fill="#C9A96E">MARA</text>
-  <text x="32" y="42" text-anchor="middle" font-family="Georgia, serif" font-size="7" fill="#C9A96E" letter-spacing="1">AGENT</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 140" role="img" aria-label="Migration Agents Registration Authority">
+  <!-- MARA 로고 — 다크 푸터용 리버스(화이트) 버전, 배경 투명. 공식 파일 확보 시 교체 가능 -->
+  <g fill="none" stroke="#F7F3EC" stroke-linecap="round">
+    <path d="M-4 128 C 70 104, 150 62, 302 6" stroke-width="6" opacity="0.95"/>
+    <path d="M-4 114 C 66 92, 146 52, 290 2" stroke-width="3" opacity="0.8"/>
+    <path d="M-4 100 C 62 80, 140 44, 272 -2" stroke-width="2" opacity="0.6"/>
+    <path d="M-4 136 C 76 114, 158 72, 308 16" stroke-width="2" opacity="0.6"/>
+  </g>
+  <g>
+    <path fill="#F7F3EC" d="M95 30 L103 26 L110 33 L114 28 L120 35 L128 32 L138 40 L146 50 L150 62 L146 74 L136 82 L124 80 L114 87 L102 84 L92 89 L82 83 L70 81 L62 71 L58 58 L63 45 L74 36 L86 38 Z"/>
+    <path fill="#F7F3EC" d="M127 93 L135 91 L132 100 Z"/>
+    <text x="104" y="66" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="bold" fill="#23283F">MARA</text>
+  </g>
+  <rect x="196" y="30" width="2" height="84" fill="#F7F3EC"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" fill="#F7F3EC">
+    <text x="210" y="48">Migration</text>
+    <text x="210" y="70">Agents</text>
+    <text x="210" y="92">Registration</text>
+    <text x="210" y="114">Authority</text>
+  </g>
 </svg>

@@ -2,8 +2,8 @@
 
 | 항목 | 내용 |
 |---|---|
-| 문서 버전 | v0.4 (클라이언트 확정 정보 반영 — 연락처·자격번호·폼 연동·구글맵) |
-| 작성일 | 2026-08-12 (v0.4 업데이트: 2026-08-12) |
+| 문서 버전 | v0.5 (푸터 공신력 로고 적용 — MARA 로고·MARA 등록번호 배지·NSW JP 크레스트) |
+| 작성일 | 2026-08-12 (v0.5 업데이트: 2026-08-12) |
 | 프로젝트명 | 조은법률 조은이민 (Joun Lawyers) 웹사이트 구축 |
 | 주 벤치마크 | [정성이민 (myjeongseong.com)](https://myjeongseong.com/) |
 | 보조 벤치마크 | [Kris Ahn Lawyers](https://krisahn.com.au/) · [Kah Lawyers](https://kahlawyers.com/) · [AILS (australiavisa.com)](https://www.australiavisa.com/) · [Park & Co Lawyers](https://parklawyers.com.au/) |
@@ -242,6 +242,16 @@ Home
 
 ## 12. 개발 진행 현황 (2026-08-12 기준, v0.4)
 
+### 12.0b v0.5 변경 사항 ✅ (2026-08-12)
+
+**푸터 공신력 로고 적용** — 클라이언트가 선택한 MARA 로고·MARA 등록번호 배지(+NSW JP 크레스트)를 푸터에 반영
+
+1. **MARA 로고** (`src/assets/mara-logo.svg`) — 공식 로고(스우시 + 호주 지도 + MARA + Migration Agents Registration Authority)를 벡터로 재현. 배경 제거(투명), 다크 차콜 푸터에서 보이도록 **리버스(화이트) 버전**으로 제작. "Registered Migration Agent" 배지 우측에 표시
+2. **MARA 등록번호 배지** (`src/assets/mara-number.svg` 신규) — 참고 이미지의 등록번호를 법무사님 번호인 **0741800**으로 변경, 배경(미색 카드) 제거 후 다크 배경용으로 재제작 (점 패턴 호주 지도 + Migration Agents Registration Number + 번호 박스 + www.mara.gov.au). 푸터에 이미지 단독 배지로 표시
+3. **NSW JP 크레스트** (`src/assets/jp-logo.svg`) — NSW Justices Association 크레스트(원형 + 왕관 + 저울 + 1911)를 배경 투명 단색 버전으로 재현. "Justice of the Peace" 배지 우측에 표시
+4. **구현**: `Footer.jsx`에 이미지 단독 배지(`image` 타입) 렌더링 추가, `content.js` en/ko 양쪽 badges에 등록번호 배지 항목 추가, `global.css`에 와이드 로고·이미지 배지 스타일 추가
+5. 참고: 세 로고 모두 원본 이미지 기반 벡터 재현본 — 공식 원본 파일(투명 PNG/SVG) 확보 시 동일 경로 교체만 하면 됨
+
 ### 12.0a v0.4 변경 사항 ✅ (2026-08-12)
 
 1. **클라이언트 확정 정보 반영** (`src/data/content.js` — 13장 1·2·3·7번 해소)
@@ -321,7 +331,7 @@ Home
 - **F-07** sitemap.xml, robots.txt 추가 (배포 시)
 - **F-10** GA4 스크립트 삽입 (배포 시)
 - 대표 프로필 사진 → 초상 플레이스홀더 교체
-- 공식 MARA(OMARA)·NSW JP 로고 파일 확보 → `src/assets/mara-logo.svg` / `jp-logo.svg` 교체
+- 공식 MARA(OMARA)·NSW JP 로고 원본 파일 확보 시 → `src/assets/mara-logo.svg` / `mara-number.svg` / `jp-logo.svg` 교체 (v0.5에서 벡터 재현본 적용 완료 — 선택 사항)
 - 서브 페이지(서비스 상세, 성공사례 게시판, FAQ 등)는 미착수 — 사이트맵 확정 후 진행
 
 ---

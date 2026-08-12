@@ -10,7 +10,9 @@
       "PowerShell(npm -v)",
       "PowerShell(npm install)",
       "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\src\\\\assets\")",
-      "PowerShell(Copy-Item \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\Logo.jpg\" \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\src\\\\assets\\\\logo.jpg\" -Force)"
+      "PowerShell(Copy-Item \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\Logo.jpg\" \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\src\\\\assets\\\\logo.jpg\" -Force)",
+      "mcp__visualize__read_me",
+      "mcp__visualize__show_widget"
     ]
   }
 }

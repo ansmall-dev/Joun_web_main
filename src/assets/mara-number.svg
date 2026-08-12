@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 196" role="img" aria-label="Migration Agents Registration Number 0741800">
+  <!-- MARA 등록번호 배지 — 배경 제거·다크 푸터용 버전, MARN 0741800 -->
+  <defs>
+    <pattern id="mara-dots" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.4" fill="#F7F3EC"/>
+    </pattern>
+  </defs>
+  <g transform="translate(46,-14)">
+    <path fill="url(#mara-dots)" d="M95 30 L103 26 L110 33 L114 28 L120 35 L128 32 L138 40 L146 50 L150 62 L146 74 L136 82 L124 80 L114 87 L102 84 L92 89 L82 83 L70 81 L62 71 L58 58 L63 45 L74 36 L86 38 Z"/>
+    <path fill="url(#mara-dots)" d="M127 93 L135 91 L132 100 Z"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle" fill="#F7F3EC">
+    <text x="150" y="112" font-size="19">Migration Agents</text>
+    <text x="150" y="136" font-size="19">Registration Number</text>
+  </g>
+  <rect x="72" y="146" width="156" height="30" rx="2" fill="#F7F3EC"/>
+  <text x="150" y="167" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" letter-spacing="4" fill="#23283F">0741800</text>
+  <text x="150" y="192" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#F7F3EC">www.mara.gov.au</text>
+</svg>
