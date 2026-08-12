@@ -62,25 +62,17 @@ export default function Contact() {
                   </div>
                 </div>
               ))}
-              <div className="contact-item">
-                <div className="contact-item__icon" aria-hidden="true">
-                  🗨️
-                </div>
-                <div>
-                  <div className="contact-item__label">{contact.itemLabels.kakao}</div>
-                  <div className="contact-item__value">
-                    <a href={SITE.kakaoChannel} target="_blank" rel="noreferrer">
-                      {contact.kakaoLink}
-                    </a>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div className="contact__map">
-              {/* [확인 필요] 주소 확정 후 구글맵 embed iframe 으로 교체 (F-05) */}
-              <span style={{ fontSize: '1.4rem' }}>🗺️</span>
-              <span className="contact__map-note">{contact.mapNote}</span>
+              <iframe
+                src={SITE.mapEmbed}
+                title={contact.mapTitle}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+                style={{ width: '100%', height: '100%', border: 0, display: 'block' }}
+              />
             </div>
           </Reveal>
 

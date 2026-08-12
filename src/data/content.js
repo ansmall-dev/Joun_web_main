@@ -14,10 +14,11 @@ export const SITE = {
   phone: '0432 009 862',
   smsOnly: '0432 009 862',
   email: 'info@jounlawyer.com',
-  kakaoChannel: 'https://pf.kakao.com/', // [확인 필요] 카카오톡 채널 URL
   address: 'Suite 310, 33-43 Rowe St, Eastwood NSW 2122',
   principal: 'Jong-Suk LEE',
-  marn: 'MARN 0000000', // [확인 필요]
+  marn: 'MARN 0741800 / JP',
+  mapEmbed:
+    'https://maps.google.com/maps?q=33-43%20Rowe%20St%2C%20Eastwood%20NSW%202122&z=17&output=embed',
 }
 
 export const CONTENT = {
@@ -191,7 +192,7 @@ export const CONTENT = {
     contact: {
       label: 'Contact',
       title: { pre: 'Visit Us · ', em: 'Book a Consultation' },
-      sub: 'Leave the form below and we will get back to you promptly. Phone, SMS and KakaoTalk enquiries are equally welcome.',
+      sub: 'Leave the form below and we will get back to you promptly. Phone and SMS enquiries are equally welcome.',
       hours: 'Mon–Fri 9:00 AM – 5:00 PM (by appointment)',
       itemLabels: {
         office: 'Office',
@@ -199,14 +200,12 @@ export const CONTENT = {
         sms: 'SMS Only',
         email: 'Email',
         hours: 'Hours',
-        kakao: 'KakaoTalk',
       },
-      kakaoLink: 'Chat via KakaoTalk Channel',
-      mapNote: 'Google Map — coming soon',
+      mapTitle: 'Joun Lawyers Office Location',
       form: {
         title: 'Request a Consultation',
         name: 'Name',
-        phone: 'Phone / KakaoTalk ID',
+        phone: 'Phone',
         email: 'Email',
         date: 'Preferred Date & Time',
         field: 'Area of Enquiry',
@@ -237,7 +236,7 @@ export const CONTENT = {
       serviceLinks: ['ART Appeals', 'Employer Sponsored Visas', 'Partner Visas', 'Contracts · Property · Estates'],
       firmHeading: 'Firm',
       badges: [
-        { label: 'Migration Agent', value: SITE.marn },
+        { label: 'Registered Migration Agent', value: SITE.marn },
         { label: 'Translation', value: 'NAATI Certified' },
         { label: 'Legal Practice', value: 'NSW Law Society' },
       ],
@@ -249,7 +248,7 @@ export const CONTENT = {
     },
     floating: {
       callAria: 'Call us',
-      kakaoAria: 'KakaoTalk Channel',
+      smsAria: 'Send us an SMS',
     },
   },
 
@@ -423,7 +422,7 @@ export const CONTENT = {
     contact: {
       label: '상담 예약 — Contact',
       title: { pre: '오시는 길 · ', em: '상담 예약' },
-      sub: '아래 폼을 남겨주시면 확인 후 빠르게 연락드리겠습니다. 전화·문자·카카오톡으로도 편하게 문의하세요.',
+      sub: '아래 폼을 남겨주시면 확인 후 빠르게 연락드리겠습니다. 전화·문자로도 편하게 문의하세요.',
       hours: '월–금 9:00 AM – 5:00 PM (예약 상담)',
       itemLabels: {
         office: 'Office',
@@ -431,14 +430,12 @@ export const CONTENT = {
         sms: 'SMS Only',
         email: 'Email',
         hours: 'Hours',
-        kakao: 'KakaoTalk',
       },
-      kakaoLink: '카카오톡 채널 문의하기',
-      mapNote: 'Google Map — 주소 확정 후 연동',
+      mapTitle: '조은법률 조은이민 오시는 길',
       form: {
         title: '상담 예약 신청',
         name: '이름',
-        phone: '연락처 (전화/카카오톡 ID)',
+        phone: '연락처 (전화)',
         email: '이메일',
         date: '희망 상담 일시',
         field: '상담 분야',
@@ -469,7 +466,7 @@ export const CONTENT = {
       serviceLinks: ['ART 재심', '고용주 후원 비자', '파트너 비자', '계약 · 부동산 · 상속'],
       firmHeading: 'Firm',
       badges: [
-        { label: 'Migration Agent', value: SITE.marn },
+        { label: 'Registered Migration Agent', value: SITE.marn },
         { label: 'Translation', value: 'NAATI 공인 번역' },
         { label: 'Legal Practice', value: 'NSW Law Society' },
       ],
@@ -481,7 +478,7 @@ export const CONTENT = {
     },
     floating: {
       callAria: '전화 걸기',
-      kakaoAria: '카카오톡 채널',
+      smsAria: '문자 보내기',
     },
   },
 }
