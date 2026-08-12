@@ -1,6 +1,7 @@
 import { SITE } from '../data/content.js'
 import { useLang } from '../i18n/LanguageContext.jsx'
 import Reveal from './Reveal.jsx'
+import profile from '../assets/profile.png'
 
 export default function About() {
   const { t } = useLang()
@@ -12,9 +13,7 @@ export default function About() {
         <div className="about__grid">
           <Reveal className="about__portrait-wrap">
             <div className="about__portrait">
-              {/* [확인 필요] 대표 프로필 사진 확보 후 <img> 로 교체 */}
-              <div className="about__portrait-icon">壽</div>
-              <span className="about__portrait-note">{about.portraitNote}</span>
+              <img src={profile} alt={about.portraitNote} />
             </div>
             <div className="about__badge">
               <div className="about__badge-label">{about.badgeLabel}</div>

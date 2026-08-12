@@ -29,7 +29,7 @@ export const CONTENT = {
   // ----------------------------------------------------------
   en: {
     brand: {
-      main: 'Joun Lawyers',
+      main: 'Joun Visa',
       sub: '조은법률 조은이민',
     },
     nav: [
@@ -263,7 +263,7 @@ export const CONTENT = {
   ko: {
     brand: {
       main: '조은법률 조은이민',
-      sub: 'JOUN LAWYERS',
+      sub: 'JOUN VISA',
     },
     nav: [
       { id: 'about', label: '인사말' },

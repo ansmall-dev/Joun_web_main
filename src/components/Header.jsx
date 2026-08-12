@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { SITE } from '../data/content.js'
 import { useLang } from '../i18n/LanguageContext.jsx'
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.svg'
 
 export default function Header() {
   const { lang, setLang, t } = useLang()

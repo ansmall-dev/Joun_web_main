@@ -12,7 +12,10 @@
       "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\src\\\\assets\")",
       "PowerShell(Copy-Item \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\Logo.jpg\" \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\src\\\\assets\\\\logo.jpg\" -Force)",
       "mcp__visualize__read_me",
-      "mcp__visualize__show_widget"
+      "mcp__visualize__show_widget",
+      "PowerShell(Get-ChildItem -File | Where {$_.Extension -match 'png|jpg|jpeg|svg|webp'} | Select Name,Length,LastWriteTime)",
+      "PowerShell(Get-ChildItem $env:USERPROFILE\\\\Downloads, $env:USERPROFILE\\\\Desktop -File -ErrorAction SilentlyContinue | Where {$_.Extension -match 'png|jpe?g|svg|webp' -and $_.LastWriteTime -gt \\(Get-Date\\).AddDays\\(-3\\)} | Sort LastWriteTime -Desc | Select FullName,Length,LastWriteTime | Format-Table -Auto)",
+      "PowerShell(Copy-Item \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\Profile.png\" \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\src\\\\assets\\\\profile.png\")"
     ]
   }
 }
