@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Justice of the Peace">
+  <!-- 임시 배지 — 공식 NSW JP 로고 파일 확보 후 이 파일을 교체하세요 -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#C9A96E" stroke-width="2.5"/>
+  <circle cx="32" cy="32" r="24" fill="none" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+  <text x="32" y="36" text-anchor="middle" font-family="Georgia, serif" font-size="17" font-weight="bold" fill="#C9A96E">JP</text>
+  <text x="32" y="46" text-anchor="middle" font-family="Georgia, serif" font-size="6" fill="#C9A96E" letter-spacing="0.5">NSW</text>
+</svg>

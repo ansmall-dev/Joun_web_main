@@ -15,8 +15,10 @@ export const SITE = {
   smsOnly: '0432 009 862',
   email: 'info@jounlawyer.com',
   address: 'Suite 310, 33-43 Rowe St, Eastwood NSW 2122',
-  principal: 'Jong-Suk LEE',
-  marn: 'MARN 0741800 / JP',
+  marn: 'MARN 0741800',
+  jpNumber: 'JP No. 183656',
+  // 상담 폼 제출 → 관리자 이메일 전송 (FormSubmit AJAX 엔드포인트)
+  formEndpoint: 'https://formsubmit.co/ajax/info@jounlawyer.com',
   mapEmbed:
     'https://maps.google.com/maps?q=33-43%20Rowe%20St%2C%20Eastwood%20NSW%202122&z=17&output=embed',
 }
@@ -51,7 +53,7 @@ export const CONTENT = {
       title: 'Your case, handled like our own',
       bio: 'Joun Lawyers is a legal and migration practice that has grown together with the Korean community in Australia. When complex visa issues or legal disputes leave you feeling lost, we provide an accurate diagnosis and a realistic path forward — with courtesy and care.',
       badgeLabel: 'Registered',
-      portraitNote: 'Jong-Suk LEE · Principal',
+      portraitNote: 'Principal Portrait',
       values: [
         {
           title: 'Honest risk assessment',
@@ -214,6 +216,8 @@ export const CONTENT = {
         messagePlaceholder: 'Briefly describe your situation (e.g. visa type, date of refusal notice).',
         consent: 'I consent to the collection and use of my personal information. It will be used solely for this consultation and destroyed afterwards.',
         submit: 'Submit Request',
+        submitting: 'Sending…',
+        error: 'Something went wrong while sending your request. Please try again, or contact us by phone or email.',
         successTitle: 'Your request has been received',
         successDesc: 'We will contact you within one business day. Thank you.',
         honeypotLabel: 'Company',
@@ -236,8 +240,8 @@ export const CONTENT = {
       serviceLinks: ['ART Appeals', 'Employer Sponsored Visas', 'Partner Visas', 'Contracts · Property · Estates'],
       firmHeading: 'Firm',
       badges: [
-        { label: 'Registered Migration Agent', value: SITE.marn },
-        { label: 'Translation', value: 'NAATI Certified' },
+        { label: 'Registered Migration Agent', value: SITE.marn, logo: 'mara' },
+        { label: 'Justice of the Peace', value: SITE.jpNumber, logo: 'jp' },
         { label: 'Legal Practice', value: 'NSW Law Society' },
       ],
       disclaimer:
@@ -281,7 +285,7 @@ export const CONTENT = {
       title: '고객의 일을 나의 일처럼',
       bio: '조은법률 조은이민은 호주 한인 커뮤니티와 함께 성장해 온 법률·이민 전문 사무소입니다. 복잡한 비자 문제와 법률 분쟁 앞에서 막막함을 느끼는 분들께, 정확한 진단과 현실적인 해법을 정중하게 제시합니다.',
       badgeLabel: 'Registered',
-      portraitNote: '이종석 (Jong-Suk LEE) · 대표',
+      portraitNote: 'Principal Portrait',
       values: [
         {
           title: '정확한 리스크 진단',
@@ -444,6 +448,8 @@ export const CONTENT = {
         messagePlaceholder: '현재 상황을 간단히 알려주세요. (예: 비자 종류, 거절 통보 수령일 등)',
         consent: '개인정보 수집·이용에 동의합니다. 수집된 정보는 상담 목적으로만 사용되며, 상담 종료 후 파기됩니다.',
         submit: '상담 신청하기',
+        submitting: '전송 중…',
+        error: '전송 중 문제가 발생했습니다. 잠시 후 다시 시도하시거나 전화·이메일로 문의해 주세요.',
         successTitle: '상담 신청이 접수되었습니다',
         successDesc: '영업일 기준 1일 이내에 연락드리겠습니다. 감사합니다.',
         honeypotLabel: '회사명',
@@ -466,8 +472,8 @@ export const CONTENT = {
       serviceLinks: ['ART 재심', '고용주 후원 비자', '파트너 비자', '계약 · 부동산 · 상속'],
       firmHeading: 'Firm',
       badges: [
-        { label: 'Registered Migration Agent', value: SITE.marn },
-        { label: 'Translation', value: 'NAATI 공인 번역' },
+        { label: 'Registered Migration Agent', value: SITE.marn, logo: 'mara' },
+        { label: 'Justice of the Peace', value: SITE.jpNumber, logo: 'jp' },
         { label: 'Legal Practice', value: 'NSW Law Society' },
       ],
       disclaimer:

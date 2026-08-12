@@ -7,6 +7,8 @@ export default function Contact() {
   const { t } = useLang()
   const { contact } = t
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState(false)
 
   const contactItems = [
     { icon: '📍', label: contact.itemLabels.office, value: SITE.address },
@@ -26,14 +28,28 @@ export default function Contact() {
     { icon: '🕘', label: contact.itemLabels.hours, value: contact.hours },
   ]
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const data = new FormData(e.target)
     // 허니팟(스팸 방지): 봇이 채우면 조용히 무시
     if (data.get('company')) return
-    // TODO(F-02): Formspree/Resend 연동 지점 — 확정된 엔드포인트로 POST
-    console.log('상담 신청:', Object.fromEntries(data.entries()))
-    setSubmitted(true)
+
+    // F-02: FormSubmit AJAX 엔드포인트로 전송 → info@jounlawyer.com 수신
+    setSending(true)
+    setError(false)
+    try {
+      const res = await fetch(SITE.formEndpoint, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: data,
+      })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      setSubmitted(true)
+    } catch {
+      setError(true)
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -71,7 +87,7 @@ export default function Contact() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
-                style={{ width: '100%', height: '100%', border: 0, display: 'block' }}
+                style={{ width: '100%', height: '200px', border: 0, display: 'block' }}
               />
             </div>
           </Reveal>
@@ -87,6 +103,11 @@ export default function Contact() {
               ) : (
                 <form onSubmit={handleSubmit}>
                   <h3 className="form__title">{contact.form.title}</h3>
+
+                  {/* FormSubmit 설정 필드 */}
+                  <input type="hidden" name="_subject" value="[Joun Lawyers] New Consultation Request" />
+                  <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="_captcha" value="false" />
 
                   {/* 허니팟 필드 — 사람에게는 보이지 않음 */}
                   <div className="form__hp" aria-hidden="true">
@@ -167,8 +188,10 @@ export default function Contact() {
                     </span>
                   </label>
 
-                  <button type="submit" className="btn btn--primary form__submit">
-                    {contact.form.submit}
+                  {error && <p className="form__error">{contact.form.error}</p>}
+
+                  <button type="submit" className="btn btn--primary form__submit" disabled={sending}>
+                    {sending ? contact.form.submitting : contact.form.submit}
                   </button>
                 </form>
               )}

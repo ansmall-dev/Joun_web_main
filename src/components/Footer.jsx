@@ -1,5 +1,9 @@
 import { SITE } from '../data/content.js'
 import { useLang } from '../i18n/LanguageContext.jsx'
+import maraLogo from '../assets/mara-logo.svg'
+import jpLogo from '../assets/jp-logo.svg'
+
+const BADGE_LOGOS = { mara: maraLogo, jp: jpLogo }
 
 export default function Footer() {
   const { t } = useLang()
@@ -41,8 +45,13 @@ export default function Footer() {
           <div className="footer__badges">
             {footer.badges.map((b) => (
               <div className="footer-badge" key={b.label}>
-                <div className="footer-badge__label">{b.label}</div>
-                <div className="footer-badge__value">{b.value}</div>
+                <div className="footer-badge__text">
+                  <div className="footer-badge__label">{b.label}</div>
+                  <div className="footer-badge__value">{b.value}</div>
+                </div>
+                {b.logo && BADGE_LOGOS[b.logo] && (
+                  <img className="footer-badge__logo" src={BADGE_LOGOS[b.logo]} alt={`${b.label} logo`} />
+                )}
               </div>
             ))}
           </div>
