@@ -11,11 +11,12 @@ export const SITE = {
   nameKo: '조은법률 조은이민',
   nameEn: 'JOUN LAWYERS',
   location: 'SYDNEY · AUSTRALIA',
-  phone: '+61 2 0000 0000', // [확인 필요]
-  smsOnly: '+61 400 000 000', // [확인 필요] 문자 전용
-  email: 'info@jounlawyers.com.au', // [확인 필요]
+  phone: '0432 009 862',
+  smsOnly: '0432 009 862',
+  email: 'info@jounlawyer.com',
   kakaoChannel: 'https://pf.kakao.com/', // [확인 필요] 카카오톡 채널 URL
-  address: 'Sydney NSW, Australia', // [확인 필요] 상세 주소
+  address: 'Suite 310, 33-43 Rowe St, Eastwood NSW 2122',
+  principal: 'Jong-Suk LEE',
   marn: 'MARN 0000000', // [확인 필요]
 }
 
@@ -49,7 +50,7 @@ export const CONTENT = {
       title: 'Your case, handled like our own',
       bio: 'Joun Lawyers is a legal and migration practice that has grown together with the Korean community in Australia. When complex visa issues or legal disputes leave you feeling lost, we provide an accurate diagnosis and a realistic path forward — with courtesy and care.',
       badgeLabel: 'Registered',
-      portraitNote: 'Principal Portrait',
+      portraitNote: 'Jong-Suk LEE · Principal',
       values: [
         {
           title: 'Honest risk assessment',
@@ -191,7 +192,7 @@ export const CONTENT = {
       label: 'Contact',
       title: { pre: 'Visit Us · ', em: 'Book a Consultation' },
       sub: 'Leave the form below and we will get back to you promptly. Phone, SMS and KakaoTalk enquiries are equally welcome.',
-      hours: 'Mon–Fri 9:00 AM – 5:30 PM (by appointment)',
+      hours: 'Mon–Fri 9:00 AM – 5:00 PM (by appointment)',
       itemLabels: {
         office: 'Office',
         phone: 'Phone',
@@ -281,7 +282,7 @@ export const CONTENT = {
       title: '고객의 일을 나의 일처럼',
       bio: '조은법률 조은이민은 호주 한인 커뮤니티와 함께 성장해 온 법률·이민 전문 사무소입니다. 복잡한 비자 문제와 법률 분쟁 앞에서 막막함을 느끼는 분들께, 정확한 진단과 현실적인 해법을 정중하게 제시합니다.',
       badgeLabel: 'Registered',
-      portraitNote: 'Principal Portrait',
+      portraitNote: '이종석 (Jong-Suk LEE) · 대표',
       values: [
         {
           title: '정확한 리스크 진단',
@@ -423,7 +424,7 @@ export const CONTENT = {
       label: '상담 예약 — Contact',
       title: { pre: '오시는 길 · ', em: '상담 예약' },
       sub: '아래 폼을 남겨주시면 확인 후 빠르게 연락드리겠습니다. 전화·문자·카카오톡으로도 편하게 문의하세요.',
-      hours: '월–금 9:00 AM – 5:30 PM (예약 상담)',
+      hours: '월–금 9:00 AM – 5:00 PM (예약 상담)',
       itemLabels: {
         office: 'Office',
         phone: 'Phone',
