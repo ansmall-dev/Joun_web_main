@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:myjeongseong.com)",
+      "WebFetch(domain:krisahn.com.au)",
+      "WebFetch(domain:kahlawyers.com)",
+      "WebFetch(domain:www.australiavisa.com)",
+      "WebFetch(domain:parklawyers.com.au)",
+      "PowerShell(node -v)",
+      "PowerShell(npm -v)",
+      "PowerShell(npm install)",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\src\\\\assets\")",
+      "PowerShell(Copy-Item \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\Logo.jpg\" \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\src\\\\assets\\\\logo.jpg\" -Force)"
+    ]
+  }
+}
