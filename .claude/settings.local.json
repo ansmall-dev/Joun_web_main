@@ -22,7 +22,16 @@
       "PowerShell(node \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\tmp-images.mjs\")",
       "PowerShell(Copy-Item \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\src\\\\assets\\\\logo.svg\" \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\public\\\\favicon.svg\")",
       "PowerShell(git -C \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\" rm -r --cached .vite --quiet)",
-      "PowerShell(git -C \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\" status --short)"
+      "PowerShell(git -C \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\" status --short)",
+      "Bash(npm run *)",
+      "Bash(curl -s https://jounvisa.com/)",
+      "Bash(curl -s https://jounvisa.com/robots.txt)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://jounvisa.com/sitemap.xml)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'Confirm domain jounvisa.com — update canonical/OG/sitemap/robots/SITE.url *)",
+      "Bash(git push *)",
+      "PowerShell(git push origin main)",
+      "PowerShell(git -c credential.helper=manager push origin main)"
     ]
   }
 }
