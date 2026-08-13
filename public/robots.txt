@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jounlawyer.com/sitemap.xml
+Sitemap: https://jounvisa.com/sitemap.xml

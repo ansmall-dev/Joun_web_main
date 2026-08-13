@@ -265,7 +265,7 @@ Home
 3. **F-07 SEO 일괄 구현**
    - **파비콘**: 확정된 여권 배지 마크(V2)로 `public/favicon.svg` + PNG 3종(32px / 192px / 180px apple-touch) 생성, `index.html`에 링크. `theme-color`(#8b1a1a) 추가
    - **OG 이미지**: 1200×630 브랜드 카드(`public/og-image.png`, 배지 마크 + JOUN LAWYERS + 조은법률 조은이민) 생성, `og:image`·`twitter:card`(summary_large_image) 메타 추가
-   - **canonical**: `https://jounlawyer.com/` (13-4 도메인 확정 시 일괄 수정 — `SITE.url` 주석 참조)
+   - **canonical**: `https://jounvisa.com/` (13-4 도메인 확정에 따라 v0.9 이후 일괄 수정 완료)
    - **robots.txt / sitemap.xml**: `public/`에 추가 (sitemap에 en-AU/ko hreflang alternate 포함)
    - **JSON-LD LegalService 완성**: 기존 이름·설명만 → `address`(Eastwood 주소), `telephone`(+61 표기), `email`, `url`, `geo` 좌표, `openingHoursSpecification`(월–금 9–5), `image`/`logo`, `availableLanguage`(ko/en), `knowsAbout` 서비스 목록까지 로컬 SEO 필수 필드 전체 반영
    - **언어별 메타 동기화**: 언어 토글 시 `document.title`·meta description이 해당 언어로 변경 (`CONTENT.en/ko.meta`, `LanguageContext`)
@@ -422,7 +422,8 @@ Home
 
 ### 12.2 남은 작업 (연동 대기) ⏳
 - **F-02** FormSubmit 활성화: 첫 실제 제출 후 `info@jounlawyer.com`으로 오는 확인 메일 1회 승인
-- ~~**F-07** sitemap.xml, robots.txt 추가~~ → ✅ 완료 (v1.0: `public/`에 추가. 단, 도메인 확정 시 `robots.txt`·`sitemap.xml`·`index.html` canonical/OG URL·`SITE.url` 일괄 수정 필요)
+- ~~**F-07** sitemap.xml, robots.txt 추가~~ → ✅ 완료 (v1.0: `public/`에 추가. 도메인 `jounvisa.com` 확정에 따라 `robots.txt`·`sitemap.xml`·`index.html` canonical/OG URL·`SITE.url` 일괄 수정 완료)
+- **F-07b** Google Search Console 등록: `jounvisa.com` 소유권 확인(DNS TXT 또는 HTML 태그) 후 `https://jounvisa.com/sitemap.xml` 제출 — 색인 시작 (수정된 canonical/sitemap 재배포 후 진행)
 - **F-10** GA4 스크립트 삽입 (배포 시)
 - ~~대표 프로필 사진 → 초상 플레이스홀더 교체~~ → ✅ 완료 (v0.6: `profile.png` 적용)
 - 공식 MARA(OMARA)·JP 로고 원본 파일 확보 시 → `src/assets/mara-logo.svg` / `mara-number.svg` / `jp-logo.svg` 교체 (v0.5~v0.7에서 벡터 재현본 적용 완료 — 선택 사항). 단, 원본은 대부분 흰/미색 배경 + 남색·적색 인쇄용이라 다크 브라운 푸터에 얹으려면 배경 제거·리버스 처리 필요
@@ -439,7 +440,7 @@ Home
 1. ~~**사무소 기본 정보**~~ → ✅ 확정 (v0.4): Suite 310, 33-43 Rowe St, Eastwood NSW 2122 / 0432 009 862 / info@jounlawyer.com / 월–금 9AM–5PM
 2. ~~**대표 정보**~~ → ✅ 확정 (v0.4, v0.9 추가): 자격번호 MARN 0741800 · JP No. 183656 반영. **대표자명 "박두우 법무사 (Dow Park)"** — About 섹션 프로필 카드에 이름·직함·간단한 소개 노출(v0.9). 프로필 사진은 ✅ 적용 (v0.6: `profile.png`)
 3. ~~**서비스 목록**~~ → ✅ 확정 (v0.4): 이민·법률 대부분 서비스 제공 — 현행 8개 카드 구성 유지
-4. **도메인**: 보유 중인 도메인 또는 희망 도메인 (이메일 도메인 기준 jounlawyer.com 추정 — 확인 필요)
+4. ~~**도메인**~~ → ✅ 확정: **jounvisa.com** — canonical/OG/sitemap/robots/`SITE.url` 일괄 반영 완료 (이메일은 `info@jounlawyer.com` 유지)
 5. **고객 후기**: 기존 후기 자료 보유 여부, 실명 공개 가능 여부 — v1.0에서 창작 후기를 익명화 사례 요약으로 대체(리스크 해소). 실제 후기 확보·동의 시 후기 섹션 복원 여부 결정
 6. ~~**영문 페이지** 필요 여부~~ → ✅ 확정·구현 완료 (v0.3: 영어 기본 + 한국어 토글)
 7. ~~**카카오톡 채널** 보유 여부~~ → ✅ 확정 (v0.4): 채널 없음 — 사이트에서 전면 제거

@@ -18,8 +18,8 @@ export const SITE = {
   marn: 'MARN 0741800',
   jpNumber: 'JP No. 183656',
   abn: 'ABN 98 716 989 655',
-  // 공식 도메인 — canonical·OG·sitemap 기준 URL (PRD 13-4: 최종 도메인 확정 시 이곳과 index.html·public/ 파일 일괄 수정)
-  url: 'https://jounlawyer.com',
+  // 공식 도메인 — canonical·OG·sitemap 기준 URL (13-4 확정: jounvisa.com)
+  url: 'https://jounvisa.com',
   // 상담 폼 제출 → 관리자 이메일 전송 (FormSubmit AJAX 엔드포인트)
   formEndpoint: 'https://formsubmit.co/ajax/info@jounlawyer.com',
   mapEmbed:
