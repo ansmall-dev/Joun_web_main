@@ -1403,10 +1403,136 @@ button {
 .footer__legal {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .footer__legal a:hover {
   color: var(--color-gold-light);
+}
+
+.footer__legal button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.footer__legal button:hover {
+  color: var(--color-gold-light);
+}
+
+/* ============================================================
+   Legal modal (Terms · Privacy · Code of Conduct)
+   ============================================================ */
+
+.legal-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(20, 14, 10, 0.65);
+  backdrop-filter: blur(4px);
+  animation: legalFade 0.2s ease;
+}
+
+@keyframes legalFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.legal-modal__panel {
+  background: #fff;
+  color: var(--color-charcoal);
+  width: min(760px, 100%);
+  max-height: min(84vh, 900px);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.legal-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 26px 30px 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.legal-modal__title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  line-height: 1.3;
+  color: var(--color-primary);
+}
+
+.legal-modal__updated {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.legal-modal__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.7rem;
+  line-height: 1;
+  padding: 2px 6px;
+  color: rgba(0, 0, 0, 0.45);
+  transition: color 0.2s ease;
+}
+
+.legal-modal__close:hover {
+  color: var(--color-primary);
+}
+
+.legal-modal__body {
+  padding: 22px 30px 30px;
+  overflow-y: auto;
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+.legal-modal__body section + section {
+  margin-top: 22px;
+}
+
+.legal-modal__body h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--color-charcoal);
+}
+
+.legal-modal__body p + p {
+  margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .legal-modal {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .legal-modal__panel {
+    max-height: 92vh;
+    border-radius: 14px 14px 0 0;
+  }
+
+  .legal-modal__header,
+  .legal-modal__body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .footer__disclaimer {

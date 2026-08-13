@@ -2,8 +2,8 @@
 
 | 항목 | 내용 |
 |---|---|
-| 문서 버전 | v0.7 (Joun Visa 로고 확정 — 여권 배지 마크 채택, 푸터 공신력 로고 레이아웃 개편) |
-| 작성일 | 2026-08-12 (v0.7 업데이트: 2026-08-13) |
+| 문서 버전 | v0.8 (법적 고지 3종 — 이용약관·개인정보처리방침·행동강령 모달 추가, 푸터 ABN 표기) |
+| 작성일 | 2026-08-12 (v0.8 업데이트: 2026-08-13) |
 | 프로젝트명 | 조은법률 조은이민 (Joun Lawyers) 웹사이트 구축 |
 | 주 벤치마크 | [정성이민 (myjeongseong.com)](https://myjeongseong.com/) |
 | 보조 벤치마크 | [Kris Ahn Lawyers](https://krisahn.com.au/) · [Kah Lawyers](https://kahlawyers.com/) · [AILS (australiavisa.com)](https://www.australiavisa.com/) · [Park & Co Lawyers](https://parklawyers.com.au/) |
@@ -155,7 +155,7 @@ Home
 
 ### 5.7 공통 요소
 - **헤더**: 로고(Joun Lawyers), GNB, 상담예약 버튼(강조색), 모바일 햄버거 메뉴
-- **푸터**: 사무소 정보(주소/연락처), 자격 등록번호, Terms of Use, Privacy Policy, 저작권
+- **푸터**: 사무소 정보(주소/연락처), 자격 등록번호, ABN, Terms & Conditions · Privacy Policy · Code of Conduct (모달, v0.8 ✅), 저작권
 - **플로팅 버튼(모바일)**: 전화 걸기 + 문자 보내기 (카카오톡 채널 없음 — 문자로 대체 ✅)
 
 ---
@@ -249,7 +249,19 @@ Home
 
 ---
 
-## 12. 개발 진행 현황 (2026-08-13 기준, v0.7)
+## 12. 개발 진행 현황 (2026-08-13 기준, v0.8)
+
+### 12.0e v0.8 변경 사항 ✅ (2026-08-13)
+
+**법적 고지 페이지 3종 + 푸터 ABN 표기**
+
+1. **법적 문서 3종 신설** — Terms & Conditions(이용약관) / Privacy Policy(개인정보처리방침) / Code of Conduct(전문가 행동강령). 벤치마크(Kris Ahn Lawyers 프라이버시 정책 구조, AILS 푸터 ABN·면책 표기)를 참고해 호주 법률·이민 사무소 표준 구성으로 작성
+   - **Terms**: 일반 정보 제공(법률 자문 아님), 의뢰 관계 성립 시점, 정확성 면책, 책임 제한(호주 소비자법), 지식재산권, 외부 링크, NSW 준거법 — 8개 조항
+   - **Privacy**: Privacy Act 1988 (Cth) 호주 개인정보보호원칙(APPs) 준수, 수집 항목·목적, 민감정보, 제공 대상(내무부·ART 등), 7년 보관, 열람·정정, OAIC 불만 절차 — 9개 조항
+   - **Code of Conduct**: Migration (Migration Agents Code of Conduct) Regulations 2021(OMARA) 및 NSW 변호사 행동규칙(Legal Profession Uniform Law) 기반 전문가 의무, 비용 투명성, OMARA·OLSC 불만 채널 — 5개 조항
+2. **구현 방식** — 라우터 없는 SPA 특성에 맞춰 **모달 방식**: 푸터 하단 링크 3개 클릭 시 `LegalModal.jsx`(신규)가 오버레이로 표시. ESC·배경 클릭 닫기, 배경 스크롤 잠금, 모바일에서 바텀시트 스타일. 콘텐츠는 `content.js`의 `legal` 사전(en/ko 완역)에서 관리 — F-04/F-08 원칙 유지
+3. **푸터 ABN 표기** — `SITE.abn = 'ABN 98 716 989 655'` 추가, 푸터 저작권 줄에 표기 (AILS 벤치마크 방식). Terms·Privacy 본문에도 ABN 명시
+4. **푸터 법적 링크 갱신** — 기존 죽은 링크(#top) 2개 → 실제 모달 여는 버튼 3개로 교체 (EN: Terms & Conditions / Privacy Policy / Code of Conduct, KO: 이용약관 / 개인정보처리방침 / 전문가 행동강령)
 
 ### 12.0d v0.7 변경 사항 ✅ (2026-08-13)
 
@@ -357,7 +369,7 @@ Home
     │          logo.jpg · logo.png (구 로고) · profile.png (대표 사진)
     └── components/  Header · Hero · About · Services · Stats ·
                      Testimonials · CtaBanner · Contact · Footer ·
-                     FloatingActions · Reveal
+                     LegalModal · FloatingActions · Reveal
 ```
 
 ### 12.2 남은 작업 (연동 대기) ⏳

@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { SITE } from '../data/content.js'
 import { useLang } from '../i18n/LanguageContext.jsx'
+import LegalModal from './LegalModal.jsx'
 import maraLogo from '../assets/mara-logo.svg'
 import maraNumber from '../assets/mara-number.svg'
 import jpLogo from '../assets/jp-logo.svg'
@@ -10,6 +12,7 @@ export default function Footer() {
   const { t } = useLang()
   const { footer } = t
   const year = new Date().getFullYear()
+  const [legalDoc, setLegalDoc] = useState(null)
 
   return (
     <footer className="footer">
@@ -67,14 +70,17 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <span>
-            © {year} {SITE.nameKo} ({SITE.nameEn}). {footer.rights}
+            © {year} {SITE.nameKo} ({SITE.nameEn}). {footer.rights} · {SITE.abn}
           </span>
           <div className="footer__legal">
-            <a href="#top">{footer.terms}</a>
-            <a href="#top">{footer.privacy}</a>
+            <button type="button" onClick={() => setLegalDoc('terms')}>{footer.terms}</button>
+            <button type="button" onClick={() => setLegalDoc('privacy')}>{footer.privacy}</button>
+            <button type="button" onClick={() => setLegalDoc('conduct')}>{footer.conduct}</button>
           </div>
         </div>
       </div>
+
+      {legalDoc && <LegalModal docKey={legalDoc} onClose={() => setLegalDoc(null)} />}
     </footer>
   )
 }
