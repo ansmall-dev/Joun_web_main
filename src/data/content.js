@@ -55,6 +55,12 @@ export const CONTENT = {
       bio: 'Joun Lawyers is a legal and migration practice that has grown together with the Korean community in Australia. When complex visa issues or legal disputes leave you feeling lost, we provide an accurate diagnosis and a realistic path forward — with courtesy and care.',
       badgeLabel: 'Registered',
       portraitNote: 'Principal Portrait',
+      principal: {
+        name: 'Dow Park',
+        role: 'Principal · Registered Migration Agent',
+        intro:
+          'With years of experience across Australian migration and legal practice, Dow Park has helped countless members of the Korean community settle and thrive in Australia, guiding each matter personally from the first consultation to the final outcome.',
+      },
       values: [
         {
           title: 'Honest risk assessment',
@@ -449,6 +455,12 @@ export const CONTENT = {
       bio: '조은법률 조은이민은 호주 한인 커뮤니티와 함께 성장해 온 법률·이민 전문 사무소입니다. 복잡한 비자 문제와 법률 분쟁 앞에서 막막함을 느끼는 분들께, 정확한 진단과 현실적인 해법을 정중하게 제시합니다.',
       badgeLabel: 'Registered',
       portraitNote: 'Principal Portrait',
+      principal: {
+        name: '박두우 법무사 (Dow Park)',
+        role: '대표 · 공인 이민법무사',
+        intro:
+          '박두우 법무사는 호주 이민·법률 분야에서 다년간 쌓아온 경험을 바탕으로, 첫 상담부터 최종 결과까지 모든 사안을 직접 챙기며 수많은 한인 분들의 호주 정착을 함께해 왔습니다.',
+      },
       values: [
         {
           title: '정확한 리스크 진단',

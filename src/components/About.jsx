@@ -29,6 +29,13 @@ export default function About() {
                 <em>.</em>
               </h2>
               <p className="about__bio">{about.bio}</p>
+              <div className="about__principal">
+                <p className="about__principal-name">
+                  {about.principal.name}
+                  <span className="about__principal-role">{about.principal.role}</span>
+                </p>
+                <p className="about__principal-intro">{about.principal.intro}</p>
+              </div>
             </Reveal>
             <div className="about__values">
               {about.values.map((v, i) => (

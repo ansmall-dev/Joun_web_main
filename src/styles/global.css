@@ -666,6 +666,32 @@ button {
   color: var(--color-text-muted);
 }
 
+.about__principal {
+  margin-top: 18px;
+  padding-left: 16px;
+  border-left: 3px solid var(--color-gold);
+}
+
+.about__principal-name {
+  font-weight: 700;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.about__principal-role {
+  font-weight: 500;
+  font-size: 0.85em;
+  color: var(--color-text-muted);
+}
+
+.about__principal-intro {
+  margin-top: 6px;
+  font-size: 0.95em;
+  color: var(--color-text-muted);
+}
+
 .about__values {
   margin-top: 24px;
   display: grid;
