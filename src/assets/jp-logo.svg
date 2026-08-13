@@ -1,20 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="NSW Justices Association">
-  <!-- NSW Justices Association 크레스트 — 배경 제거·다크 푸터용 단색 버전. 공식 파일 확보 시 교체 가능 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Justice of the Peace">
+  <!-- Justice of the Peace 실(seal) — 배경 투명, 스캘럽 테두리 + 글로시 레드 -->
   <defs>
-    <path id="jp-arc-top" d="M16 68 A 44 44 0 1 1 104 68" fill="none"/>
+    <radialGradient id="jp-red" cx="50%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#c8202c"/>
+      <stop offset="60%" stop-color="#a5121d"/>
+      <stop offset="100%" stop-color="#7e0c15"/>
+    </radialGradient>
+    <linearGradient id="jp-gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
   </defs>
-  <circle cx="60" cy="60" r="57" fill="none" stroke="#F7F3EC" stroke-width="2.5"/>
-  <circle cx="60" cy="60" r="38" fill="none" stroke="#F7F3EC" stroke-width="1"/>
-  <text font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="bold" letter-spacing="1.5" fill="#F7F3EC">
-    <textPath href="#jp-arc-top" startOffset="50%" text-anchor="middle">NSW JUSTICES ASSOCIATION</textPath>
-  </text>
-  <text x="60" y="106" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="bold" letter-spacing="2" fill="#F7F3EC">1911</text>
-  <g stroke="#F7F3EC" stroke-width="2" fill="none" stroke-linecap="round">
-    <path d="M50 38 L50 32 L54 36 L57 30 L60 35 L63 30 L66 36 L70 32 L70 38 Z" fill="#F7F3EC" stroke-width="1"/>
-    <line x1="60" y1="44" x2="60" y2="78"/>
-    <line x1="42" y1="50" x2="78" y2="50"/>
-    <path d="M36 50 L42 62 L48 50 M36 62 A 6 5 0 0 0 48 62" stroke-width="1.6"/>
-    <path d="M72 50 L78 62 L84 50 M72 62 A 6 5 0 0 0 84 62" stroke-width="1.6"/>
-    <line x1="50" y1="82" x2="70" y2="82"/>
+  <!-- 스캘럽(물결) 테두리: 원 둘레를 따라 도트 범프 -->
+  <circle cx="60" cy="60" r="53" fill="none" stroke="url(#jp-red)" stroke-width="9"
+          stroke-dasharray="0.1 9.25" stroke-linecap="round"/>
+  <circle cx="60" cy="60" r="52" fill="url(#jp-red)"/>
+  <circle cx="60" cy="60" r="45" fill="none" stroke="#f2d9d9" stroke-width="1.2" opacity="0.85"/>
+  <!-- 글로시 하이라이트 -->
+  <ellipse cx="60" cy="38" rx="38" ry="22" fill="url(#jp-gloss)"/>
+  <g text-anchor="middle" fill="#fdf6f0" font-family="Georgia, 'Times New Roman', serif" font-style="italic">
+    <text x="60" y="50" font-size="17" font-weight="bold">Justice</text>
+    <text x="60" y="66" font-size="11">of the</text>
+    <text x="60" y="86" font-size="17" font-weight="bold">Peace</text>
   </g>
 </svg>

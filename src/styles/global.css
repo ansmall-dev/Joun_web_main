@@ -1280,7 +1280,7 @@ button {
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 4fr 2.5fr 2.5fr 3fr;
+  grid-template-columns: 4fr 2.2fr 2.2fr 2.8fr 2fr;
   gap: 44px;
   padding-bottom: 44px;
 }
@@ -1346,27 +1346,31 @@ button {
   gap: 12px;
 }
 
-.footer-badge__logo {
-  width: 38px;
-  height: 38px;
-  flex-shrink: 0;
-}
-
-.footer-badge__logo--wide {
-  width: auto;
-  height: 34px;
-  max-width: 110px;
-}
-
-.footer-badge--image {
+/* 배지 박스 밖 오른쪽 로고 컬럼 — 눈에 잘 보이는 사이즈로 세로 스택 */
+.footer__logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding: 14px 16px;
+  gap: 22px;
 }
 
-.footer-badge__img {
-  width: 100%;
-  max-width: 190px;
+.footer__logo-img {
   height: auto;
+}
+
+.footer__logo-img--mara {
+  width: 100%;
+  max-width: 200px;
+}
+
+.footer__logo-img--marn {
+  width: 100%;
+  max-width: 170px;
+}
+
+.footer__logo-img--jp {
+  width: 110px;
 }
 
 .footer-badge__label {

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-label="Joun Visa">
+  <!-- V1: 비자 스탬프 모티프 — 둥근 스탬프 링 안 JV, 오른쪽 워드마크 -->
+  <g>
+    <circle cx="60" cy="60" r="50" fill="none" stroke="#8b1a1a" stroke-width="4"/>
+    <circle cx="60" cy="60" r="42" fill="none" stroke="#8b1a1a" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <!-- 비행기 궤적 (여정/이민 상징) -->
+    <path d="M28 78 q32 -14 64 -30" fill="none" stroke="#2e2620" stroke-width="2" stroke-dasharray="1 5" stroke-linecap="round"/>
+    <path d="M92 44 l10 -6 -12 1 -4 3 z" fill="#2e2620"/>
+    <text x="60" y="72" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="40" fill="#8b1a1a">JV</text>
+  </g>
+  <text x="132" y="72" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="46" fill="#2e2620">Joun <tspan fill="#8b1a1a">Visa</tspan></text>
+  <text x="134" y="98" font-family="Georgia, serif" font-size="15" letter-spacing="6" fill="#6b6058">MIGRATION SERVICES</text>
+</svg>

@@ -44,27 +44,22 @@ export default function Footer() {
           </div>
 
           <div className="footer__badges">
-            {footer.badges.map((b) =>
-              b.image ? (
-                <div className="footer-badge footer-badge--image" key={b.label}>
-                  <img className="footer-badge__img" src={BADGE_LOGOS[b.image]} alt={b.label} />
-                </div>
-              ) : (
+            {footer.badges
+              .filter((b) => !b.image)
+              .map((b) => (
                 <div className="footer-badge" key={b.label}>
                   <div className="footer-badge__text">
                     <div className="footer-badge__label">{b.label}</div>
                     <div className="footer-badge__value">{b.value}</div>
                   </div>
-                  {b.logo && BADGE_LOGOS[b.logo] && (
-                    <img
-                      className={`footer-badge__logo ${b.logo === 'mara' ? 'footer-badge__logo--wide' : ''}`}
-                      src={BADGE_LOGOS[b.logo]}
-                      alt={`${b.label} logo`}
-                    />
-                  )}
                 </div>
-              )
-            )}
+              ))}
+          </div>
+
+          <div className="footer__logos">
+            <img className="footer__logo-img footer__logo-img--mara" src={maraLogo} alt="Migration Agents Registration Authority" />
+            <img className="footer__logo-img footer__logo-img--marn" src={maraNumber} alt={`Migration Agents Registration Number ${SITE.marn.replace('MARN ', '')}`} />
+            <img className="footer__logo-img footer__logo-img--jp" src={jpLogo} alt="Justice of the Peace" />
           </div>
         </div>
 

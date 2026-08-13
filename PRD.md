@@ -2,8 +2,8 @@
 
 | 항목 | 내용 |
 |---|---|
-| 문서 버전 | v0.5 (푸터 공신력 로고 적용 — MARA 로고·MARA 등록번호 배지·NSW JP 크레스트) |
-| 작성일 | 2026-08-12 (v0.5 업데이트: 2026-08-12) |
+| 문서 버전 | v0.6 (Joun Visa 리브랜딩 — 헤더 로고·브랜드명 교체, 대표 프로필 사진 적용) |
+| 작성일 | 2026-08-12 (v0.6 업데이트: 2026-08-13) |
 | 프로젝트명 | 조은법률 조은이민 (Joun Lawyers) 웹사이트 구축 |
 | 주 벤치마크 | [정성이민 (myjeongseong.com)](https://myjeongseong.com/) |
 | 보조 벤치마크 | [Kris Ahn Lawyers](https://krisahn.com.au/) · [Kah Lawyers](https://kahlawyers.com/) · [AILS (australiavisa.com)](https://www.australiavisa.com/) · [Park & Co Lawyers](https://parklawyers.com.au/) |
@@ -171,12 +171,12 @@ Home
   - 배경: 화이트 + 라이트 그레이
 - **타이포그래피**: 한글 — Pretendard 또는 Noto Sans KR / 제목용 세리프(명조) 병행 검토 (법률 사무소의 격조)
 
-### 6.1a 로고 리뉴얼 제안 — JounVisa (검토 중, 2026-08-12 제안)
-- **네이밍**: "Joun Lawyers" → **"JounVisa"** 리브랜딩 검토 (이민·비자 서비스 정체성 강화)
-- **컨셉**: "비자 스탬프" 모노그램 — 기존 "좋은법률·좋은이민" 한글 낙관 도장을 여권 비자 입국 도장 형태로 현대화. 살짝 기울어진 둥근 사각 스탬프 안에 **JV 모노그램**(기존 JL의 후속), 워드마크는 세리프체 "JounVisa"
-- **컬러**: Joun = 버건디 `#7A1F2B`(기존 브랜드 계승) / Visa = 딥 네이비 `#1E3A5F`(행정·신뢰) / 다크 배경용 = 골드 베이지 `#E8C9A0` 단색 버전
-- **구성**: 메인 로고(스탬프+워드마크+태그라인 "좋은법률 · 좋은이민") / 다크 배경용 / 심볼 단독(파비콘·프로필용)
-- **상태**: 시안 제안 단계 — 클라이언트 확정 시 SVG 제작 후 헤더·파비콘·OG 이미지에 적용
+### 6.1a 로고 리뉴얼 — Joun Visa (✅ v1 적용, 2026-08-13)
+- **네이밍**: "Joun Lawyers" → **"Joun Visa"** — 헤더 브랜드 텍스트에 반영 완료 (EN: "Joun Visa" / KO 부제: "JOUN VISA")
+- **적용 로고**: `src/assets/logo.svg` (v0.6 신규 제작) — **JV 모노그램**(차콜 J + 버건디 V, 기존 JL의 후속) + 세리프 워드마크 "Joun / Visa" 2단 구성, 투명 배경
+- **컬러**: 기존 브랜드 토큰 계승 — J·Visa = 차콜 `#2E2620` / V·Joun = 버건디 `#8B1A1A`
+- **색 전환**: 기존 규칙 유지 — 히어로(버건디) 위 흰색 필터, 솔리드 헤더에서 원본색
+- **남은 적용 범위**: 파비콘·OG 이미지는 아직 구 로고/미적용 — 추후 교체 (12.2 참조). 초기 시안(비자 스탬프 컨셉, 네이비/골드 팔레트)은 미채택
 
 ### 6.2 톤 앤 매너
 - 신뢰감 · 전문성 · 정중함. 과한 장식 없이 여백을 살린 정돈된 레이아웃
@@ -248,6 +248,15 @@ Home
 ---
 
 ## 12. 개발 진행 현황 (2026-08-12 기준, v0.4)
+
+### 12.0c v0.6 변경 사항 ✅ (2026-08-13)
+
+**Joun Visa 리브랜딩 + 대표 프로필 사진 적용**
+
+1. **새 로고 제작·적용** (`src/assets/logo.svg` 신규) — JV 모노그램(차콜 J + 버건디 V) + "Joun / Visa" 세리프 워드마크, 투명 배경 SVG. `Header.jsx`가 기존 `logo.png` 대신 사용. 투명 로고 스크롤 색 전환 규칙(히어로 위 흰색 ↔ 솔리드 헤더 원본색) 그대로 적용됨
+2. **헤더 브랜드 텍스트 변경** (`content.js`) — EN `brand.main`: "Joun Lawyers" → **"Joun Visa"** / KO `brand.sub`: "JOUN LAWYERS" → **"JOUN VISA"**
+3. **대표 프로필 사진 적용** (`src/assets/profile.png` 신규) — About(인사말) 섹션의 "壽 / Principal Portrait" 플레이스홀더를 실제 사진 `<img>`로 교체 (13장 9번 일부 해소). 기존 4:5 프레임 + `object-fit: cover` 스타일 그대로 사용
+4. 참고: 사이트 타이틀·메타태그·파비콘·푸터의 "Joun Lawyers" 표기는 아직 미변경 — 리브랜딩 범위 확정 후 일괄 교체 필요 (12.2 참조)
 
 ### 12.0b v0.5 변경 사항 ✅ (2026-08-12)
 
@@ -327,7 +336,7 @@ Home
     ├── data/content.js          ← 모든 콘텐츠 단일 관리 (F-04) — CONTENT.en / CONTENT.ko 이중 사전 (F-08)
     ├── i18n/LanguageContext.jsx ← 영/한 언어 상태 관리 (기본 en, localStorage 유지)
     ├── hooks/useReveal.js
-    ├── assets/logo.jpg · logo.png (투명 배경 — 헤더 사용)
+    ├── assets/logo.svg (Joun Visa — 헤더 사용) · logo.jpg · logo.png (구 로고) · profile.png (대표 사진)
     └── components/  Header · Hero · About · Services · Stats ·
                      Testimonials · CtaBanner · Contact · Footer ·
                      FloatingActions · Reveal
@@ -337,10 +346,10 @@ Home
 - **F-02** FormSubmit 활성화: 첫 실제 제출 후 `info@jounlawyer.com`으로 오는 확인 메일 1회 승인
 - **F-07** sitemap.xml, robots.txt 추가 (배포 시)
 - **F-10** GA4 스크립트 삽입 (배포 시)
-- 대표 프로필 사진 → 초상 플레이스홀더 교체
+- ~~대표 프로필 사진 → 초상 플레이스홀더 교체~~ → ✅ 완료 (v0.6: `profile.png` 적용)
 - 공식 MARA(OMARA)·NSW JP 로고 원본 파일 확보 시 → `src/assets/mara-logo.svg` / `mara-number.svg` / `jp-logo.svg` 교체 (v0.5에서 벡터 재현본 적용 완료 — 선택 사항)
 - 서브 페이지(서비스 상세, 성공사례 게시판, FAQ 등)는 미착수 — 사이트맵 확정 후 진행
-- **로고 리뉴얼(JounVisa)** 확정 대기 — 확정 시 SVG 제작 → 헤더·파비콘·OG 이미지 교체 (6.1a 참조)
+- **Joun Visa 리브랜딩 잔여 범위** — 헤더 로고·브랜드 텍스트는 완료(v0.6). 파비콘, OG 이미지, `index.html` 타이틀·메타태그, 푸터·본문 내 "Joun Lawyers" 표기, 이메일 도메인 표기 등 일괄 교체 여부 확정 필요
 
 ---
 
@@ -354,4 +363,4 @@ Home
 6. ~~**영문 페이지** 필요 여부~~ → ✅ 확정·구현 완료 (v0.3: 영어 기본 + 한국어 토글)
 7. ~~**카카오톡 채널** 보유 여부~~ → ✅ 확정 (v0.4): 채널 없음 — 사이트에서 전면 제거
 8. **콘텐츠 관리**: 오픈 후 글(후기·칼럼)을 직접 등록하고 싶은지, 개발자에게 맡길 것인지
-9. **사진 자산**: 사무소·대표 사진 촬영 계획 / 공식 MARA·JP 로고 파일 제공
+9. **사진 자산**: ~~대표 사진~~ → ✅ 일부 해소 (v0.6: 대표 프로필 사진 적용). 사무소 사진 / 공식 MARA·JP 로고 원본 파일은 미확보

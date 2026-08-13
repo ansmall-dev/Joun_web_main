@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-label="Joun Visa">
+  <!-- V3: 미니멀 모노그램 — V를 체크마크(승인) 형태로, 모던 산세리프 -->
+  <g>
+    <!-- J -->
+    <path d="M22 24 h36 v11 h-12 v46 c0 15 -10 25 -26 25 c-4 0 -8 -1 -10 -2 v-12 c2 1 5 2 8 2 c9 0 16 -5 16 -14 v-45 h-12 z" fill="#2e2620"/>
+    <!-- V + 체크 (비자 승인 상징) -->
+    <path d="M64 24 l14 0 l14 46 l24 -58 l12 5 -30 73 h-13 z" fill="#8b1a1a"/>
+  </g>
+  <text x="150" y="70" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="44" letter-spacing="1" fill="#2e2620">JOUN <tspan fill="#8b1a1a">VISA</tspan></text>
+  <text x="152" y="98" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" letter-spacing="7" fill="#6b6058">YOUR PATH, APPROVED</text>
+</svg>
