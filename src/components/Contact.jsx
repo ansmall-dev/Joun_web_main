@@ -108,6 +108,8 @@ export default function Contact() {
                   <input type="hidden" name="_subject" value="[Joun Lawyers] New Consultation Request" />
                   <input type="hidden" name="_template" value="table" />
                   <input type="hidden" name="_captcha" value="false" />
+                  {/* 제출자에게 자동 접수 확인 메일 발송 (현재 언어 기준) */}
+                  <input type="hidden" name="_autoresponse" value={contact.form.autoresponse} />
 
                   {/* 허니팟 필드 — 사람에게는 보이지 않음 */}
                   <div className="form__hp" aria-hidden="true">

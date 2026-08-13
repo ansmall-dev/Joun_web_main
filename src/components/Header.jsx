@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react'
 import { SITE } from '../data/content.js'
 import { useLang } from '../i18n/LanguageContext.jsx'
+import { useFocusTrap } from '../hooks/useFocusTrap.js'
 import logo from '../assets/logo.svg'
 
 export default function Header() {
   const { lang, setLang, t } = useLang()
   const [scrolled, setScrolled] = useState(false)
   const [drawerOpen, setDrawerOpen] = useState(false)
+  // 드로어가 열린 동안 포커스를 안에 가두고, Escape로 닫기
+  const drawerRef = useFocusTrap(drawerOpen, { onEscape: () => setDrawerOpen(false) })
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -77,7 +80,7 @@ export default function Header() {
           <button
             className={`header__burger ${drawerOpen ? 'header__burger--open' : ''}`}
             onClick={() => setDrawerOpen(!drawerOpen)}
-            aria-label="Open menu"
+            aria-label={drawerOpen ? t.a11y.menuClose : t.a11y.menuOpen}
             aria-expanded={drawerOpen}
           >
             <span />
@@ -87,7 +90,12 @@ export default function Header() {
         </div>
       </header>
 
-      <div className={`drawer ${drawerOpen ? 'drawer--open' : ''}`}>
+      {/* 닫힌 드로어는 inert로 포커스·보조기기 접근 차단 (React 18: 빈 문자열로 속성 부여) */}
+      <div
+        className={`drawer ${drawerOpen ? 'drawer--open' : ''}`}
+        ref={drawerRef}
+        inert={drawerOpen ? undefined : ''}
+      >
         {t.nav.map((link) => (
           <a
             key={link.id}

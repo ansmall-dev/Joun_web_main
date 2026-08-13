@@ -18,6 +18,8 @@ export const SITE = {
   marn: 'MARN 0741800',
   jpNumber: 'JP No. 183656',
   abn: 'ABN 98 716 989 655',
+  // 공식 도메인 — canonical·OG·sitemap 기준 URL (PRD 13-4: 최종 도메인 확정 시 이곳과 index.html·public/ 파일 일괄 수정)
+  url: 'https://jounlawyer.com',
   // 상담 폼 제출 → 관리자 이메일 전송 (FormSubmit AJAX 엔드포인트)
   formEndpoint: 'https://formsubmit.co/ajax/info@jounlawyer.com',
   mapEmbed:
@@ -37,11 +39,21 @@ export const CONTENT = {
       { id: 'about', label: 'About Us' },
       { id: 'services', label: 'Practice Areas' },
       { id: 'why-joun', label: 'Why Joun' },
-      { id: 'testimonials', label: 'Testimonials' },
+      { id: 'cases', label: 'Case Studies' },
       { id: 'contact', label: 'Contact' },
     ],
     ctaShort: 'Book Now',
     cta: 'Book a Consultation',
+    a11y: {
+      skipLink: 'Skip to main content',
+      menuOpen: 'Open menu',
+      menuClose: 'Close menu',
+    },
+    meta: {
+      title: 'Joun Lawyers | 조은법률 조은이민 — Korean Legal & Migration Services in Sydney',
+      description:
+        'Joun Lawyers (조은법률 조은이민) — Legal and migration services for the Korean community in Sydney, Australia. ART appeals, employer sponsored visas, partner visas, contracts, property and estates. Consultations in Korean and English.',
+    },
     hero: {
       line1: 'Your new chapter in Australia,',
       line2: { pre: '', em: 'Joun', post: ' walks with you' },
@@ -140,57 +152,72 @@ export const CONTENT = {
     },
     stats: {
       label: 'Why Joun — Our Promise',
-      title: { pre: 'Results built on ', em: 'sincerity' },
+      title: { pre: 'Service built on ', em: 'sincerity' },
       items: [
-        { value: 15, suffix: '+', label: 'Years of Experience', desc: 'in legal & migration practice' },
-        { value: 97, suffix: '%', label: 'Success Rate', desc: 'across major visa categories' },
-        { value: 2400, suffix: '+', label: 'Cases Resolved', desc: 'and counting' },
+        {
+          value: 'Honest',
+          label: 'Realistic Advice First',
+          desc: 'A clear, candid assessment of your prospects and risks before you commit to anything.',
+        },
+        {
+          value: 'One-stop',
+          label: 'Law & Migration Together',
+          desc: 'Visas, appeals, contracts, property and estates — handled by one team, under one roof.',
+        },
+        {
+          value: '한국어 · EN',
+          label: 'Bilingual Care',
+          desc: 'Consultations, documents and updates in both Korean and English, whichever you prefer.',
+        },
       ],
     },
-    testimonials: {
-      label: 'Testimonials',
-      title: { pre: 'The care our clients ', em: 'remember' },
-      prevAria: 'Previous testimonial',
-      nextAria: 'Next testimonial',
-      dotAria: (n) => `View testimonial ${n}`,
-      starsAria: (n) => `${n} star rating`,
+    cases: {
+      label: 'Case Studies',
+      title: { pre: 'How Joun ', em: 'works a matter' },
+      prevAria: 'Previous case study',
+      nextAria: 'Next case study',
+      dotAria: (n) => `View case study ${n}`,
+      situationLabel: 'Situation',
+      approachLabel: 'Our Approach',
       items: [
         {
-          stars: 5,
-          quote:
-            'When the refusal notice arrived it felt like the sky was falling. They managed every detail of the appeal, from preparation to the final outcome — and thanks to them, our whole family could stay in Australia.',
-          author: 'Mr. Kim',
           caseType: 'ART Appeal · Visa Refusal',
+          situation:
+            'A family received a visa refusal notice with the review deadline approaching fast.',
+          approach:
+            'We lodged the ART review within time, analysed the refusal reasons point by point, and prepared supplementary evidence and submissions addressing each finding — keeping the family informed at every stage until the final outcome.',
         },
         {
-          stars: 5,
-          quote:
-            'The employer sponsorship process was so complex I nearly gave up. They told me exactly what was needed at each stage, and we were approved on the first attempt.',
-          author: 'Ms. Park',
           caseType: 'Employer Sponsored Visa',
+          situation:
+            'A local business wanted to sponsor a skilled worker but found the nomination and visa requirements overwhelming.',
+          approach:
+            'We mapped the requirements for both the business and the applicant, set out exactly what was needed at each stage, and managed the nomination and visa application as one coordinated matter.',
         },
         {
-          stars: 5,
-          quote:
-            'I had no idea how to prepare partner visa documents. They guided me through organising our relationship evidence in detail and kept me updated throughout. I felt safe the whole time.',
-          author: 'Ms. Lee',
           caseType: 'Partner Visa',
+          situation:
+            'A couple was unsure how to evidence their relationship and where to begin with the document checklist.',
+          approach:
+            'We provided a tailored evidence plan across the four relationship pillars, reviewed each document before lodgement, and shared progress updates throughout the processing period.',
         },
         {
-          stars: 5,
-          quote:
-            'I asked them to review my commercial lease and they caught a toxic clause I would have missed. Being able to discuss everything comfortably in Korean was a huge plus.',
-          author: 'Mr. Choi',
-          caseType: 'Contract Review',
+          caseType: 'Commercial Lease Review',
+          situation:
+            'A small-business owner was about to sign a commercial lease containing an onerous clause that was easy to miss.',
+          approach:
+            'We reviewed the lease in Korean and English, flagged the risky clause and its practical consequences, and negotiated amended terms before signing — preventing a dispute instead of litigating one.',
         },
         {
-          stars: 5,
-          quote:
-            'For my parents’ estate matter, they explained difficult legal terms in plain language and were transparent about costs from the very first meeting.',
-          author: 'Ms. Jung',
           caseType: 'Wills & Estates',
+          situation:
+            'A client needed to administer a parent’s estate but found the legal terminology and process unfamiliar.',
+          approach:
+            'We explained each step in plain language, provided a written scope and costs estimate up front, and handled the estate administration from start to finish.',
         },
       ],
+      disclaimer:
+        'Case studies are illustrative summaries with identifying details removed or generalised. Every matter is different — past matters do not guarantee a particular outcome.',
     },
     ctaBanner: {
       titleLine1: { pre: 'Clear advice, ', em: 'best solutions', post: '.' },
@@ -227,6 +254,8 @@ export const CONTENT = {
         error: 'Something went wrong while sending your request. Please try again, or contact us by phone or email.',
         successTitle: 'Your request has been received',
         successDesc: 'We will contact you within one business day. Thank you.',
+        autoresponse:
+          'Thank you for contacting Joun Lawyers (조은법률 조은이민). Your consultation request has been received and we will contact you within one business day. — This is an automated confirmation; please do not reply to this email.',
         honeypotLabel: 'Company',
         fields: [
           'Migration — ART Appeal (Refusal · Cancellation)',
@@ -358,6 +387,7 @@ export const CONTENT = {
             h: '6. Website data and enquiry form',
             ps: [
               'Information submitted through our consultation form is used solely to respond to your enquiry and arrange a consultation, and is transmitted to our office email. We do not use your enquiry details for marketing without your consent.',
+              'Form submissions are delivered to our office email via FormSubmit, a third-party form relay service whose servers may be located overseas (including the United States). By submitting the form you consent to this transmission. Please include only the information needed to arrange a consultation — do not submit passport numbers, detailed case files or other highly sensitive documents through the form; these can be provided securely after we confirm your consultation.',
             ],
           },
           {
@@ -437,11 +467,21 @@ export const CONTENT = {
       { id: 'about', label: '인사말' },
       { id: 'services', label: '서비스 분야' },
       { id: 'why-joun', label: '조은의 약속' },
-      { id: 'testimonials', label: '고객 후기' },
+      { id: 'cases', label: '주요 사례' },
       { id: 'contact', label: '오시는 길' },
     ],
     ctaShort: '상담 예약',
     cta: '상담 예약',
+    a11y: {
+      skipLink: '본문 바로가기',
+      menuOpen: '메뉴 열기',
+      menuClose: '메뉴 닫기',
+    },
+    meta: {
+      title: '조은법률 조은이민 | Joun Lawyers — 시드니 한인 법률·이민 서비스',
+      description:
+        '조은법률 조은이민 (Joun Lawyers) — 호주 시드니 한인 커뮤니티를 위한 법률·이민 통합 서비스. ART 재심, 고용주 후원 비자, 파트너 비자, 계약·부동산·상속. 한국어·영어 상담.',
+    },
     hero: {
       line1: '당신의 호주 정착,',
       line2: { pre: '', em: '조은', post: '이 함께합니다' },
@@ -540,57 +580,70 @@ export const CONTENT = {
     },
     stats: {
       label: '조은의 약속 — Why Joun',
-      title: { pre: '숫자로 증명하는 ', em: '조은의 정성' },
+      title: { pre: '정성으로 증명하는 ', em: '조은의 원칙' },
       items: [
-        { value: 15, suffix: '+', label: 'Years of Experience', desc: '법률·이민 실무 경력' },
-        { value: 97, suffix: '%', label: 'Success Rate', desc: '주요 비자 승인율' },
-        { value: 2400, suffix: '+', label: 'Cases Resolved', desc: '누적 처리 사례' },
+        {
+          value: '정직한 진단',
+          label: 'Realistic Advice First',
+          desc: '수임 전에 사안의 성공 가능성과 리스크를 있는 그대로 말씀드립니다.',
+        },
+        {
+          value: '원스톱',
+          label: 'Law & Migration Together',
+          desc: '비자·재심부터 계약·부동산·상속까지, 한 팀이 한 곳에서 처리합니다.',
+        },
+        {
+          value: '한국어 · EN',
+          label: 'Bilingual Care',
+          desc: '상담·서류·진행 안내 모두 한국어와 영어 중 편한 언어로 진행합니다.',
+        },
       ],
     },
-    testimonials: {
-      label: '고객 후기 — Testimonials',
-      title: { pre: '고객이 전하는 ', em: '조은의 정성' },
-      prevAria: '이전 후기',
-      nextAria: '다음 후기',
-      dotAria: (n) => `${n}번째 후기 보기`,
-      starsAria: (n) => `별점 ${n}점`,
+    cases: {
+      label: '주요 사례 — Case Studies',
+      title: { pre: '조은이 일하는 ', em: '방식' },
+      prevAria: '이전 사례',
+      nextAria: '다음 사례',
+      dotAria: (n) => `${n}번째 사례 보기`,
+      situationLabel: '상황',
+      approachLabel: '조은의 대응',
       items: [
         {
-          stars: 5,
-          quote:
-            '비자 거절 통보를 받고 하늘이 무너지는 것 같았는데, 재심 준비부터 결과까지 정말 꼼꼼하게 챙겨주셨습니다. 덕분에 가족 모두 호주에 남을 수 있게 되었어요.',
-          author: '김O수 님',
           caseType: 'ART 재심 · 비자 거절',
+          situation: '비자 거절 통보를 받은 가족. 재심 청구 기한이 얼마 남지 않은 상황이었습니다.',
+          approach:
+            '기한 내에 ART 재심을 접수하고, 거절 사유를 항목별로 분석해 각 쟁점에 대응하는 보완 자료와 서면을 준비했습니다. 최종 결과가 나올 때까지 진행 상황을 단계마다 공유했습니다.',
         },
         {
-          stars: 5,
-          quote:
-            '고용주 스폰서 비자 절차가 너무 복잡해서 포기할 뻔했는데, 단계마다 필요한 것을 미리 알려주셔서 한 번에 승인받았습니다.',
-          author: '박O진 님',
           caseType: '고용주 후원 비자',
+          situation:
+            '직원을 후원하고 싶지만 노미네이션과 비자 요건이 복잡해 막막해하던 사업체.',
+          approach:
+            '사업체와 신청자 양쪽의 요건을 함께 정리하고, 단계별로 필요한 사항을 미리 안내하며 노미네이션과 비자 신청을 하나의 사건으로 통합 관리했습니다.',
         },
         {
-          stars: 5,
-          quote:
-            '파트너 비자 서류 준비가 막막했는데 관계 입증 자료를 어떻게 정리해야 하는지 세세하게 안내해 주셨습니다. 진행 상황도 계속 공유해 주셔서 안심됐어요.',
-          author: '이O영 님',
           caseType: '파트너 비자',
+          situation:
+            '관계 입증 자료를 어떻게 준비해야 할지, 어디서 시작해야 할지 막막했던 커플.',
+          approach:
+            '관계 입증 4개 영역에 맞춘 맞춤형 자료 준비 계획을 제공하고, 접수 전 서류를 하나하나 검토했으며, 심사 기간 동안 진행 상황을 지속적으로 공유했습니다.',
         },
         {
-          stars: 5,
-          quote:
-            '사업장 임대 계약 검토를 맡겼는데, 놓칠 뻔한 독소 조항을 잡아주셨습니다. 한국어로 편하게 상담할 수 있어서 좋았습니다.',
-          author: '최O원 님',
-          caseType: '계약 검토',
+          caseType: '상가 임대 계약 검토',
+          situation:
+            '놓치기 쉬운 불리한 조항이 포함된 상가 임대 계약서에 서명 직전이던 소상공인.',
+          approach:
+            '계약서를 한국어와 영어로 함께 검토해 위험 조항과 실제 영향을 짚어드리고, 서명 전에 조건 수정을 협상했습니다. 분쟁이 생긴 뒤 대응하는 대신 분쟁 자체를 예방했습니다.',
         },
         {
-          stars: 5,
-          quote:
-            '부모님 상속 문제로 상담드렸는데, 어려운 법률 용어를 쉽게 풀어 설명해 주시고 비용도 처음에 투명하게 안내해 주셨습니다.',
-          author: '정O희 님',
           caseType: '유언·상속',
+          situation: '부모님의 상속 절차를 진행해야 하지만 법률 용어와 절차가 낯설었던 고객.',
+          approach:
+            '각 단계를 쉬운 말로 설명하고, 업무 범위와 예상 비용을 처음부터 서면으로 안내했으며, 상속 절차 전 과정을 처음부터 끝까지 대행했습니다.',
         },
       ],
+      disclaimer:
+        '위 사례는 신원을 식별할 수 있는 정보를 제거·일반화한 예시적 요약입니다. 모든 사안은 서로 다르며, 과거 사례가 특정 결과를 보장하지 않습니다.',
     },
     ctaBanner: {
       titleLine1: { pre: '명쾌한 상담, ', em: '최선의 솔루션', post: '.' },
@@ -627,6 +680,8 @@ export const CONTENT = {
         error: '전송 중 문제가 발생했습니다. 잠시 후 다시 시도하시거나 전화·이메일로 문의해 주세요.',
         successTitle: '상담 신청이 접수되었습니다',
         successDesc: '영업일 기준 1일 이내에 연락드리겠습니다. 감사합니다.',
+        autoresponse:
+          '조은법률 조은이민 (Joun Lawyers)에 문의해 주셔서 감사합니다. 상담 신청이 정상적으로 접수되었으며, 영업일 기준 1일 이내에 연락드리겠습니다. — 본 메일은 자동 발송 확인 메일입니다. 회신하지 마세요.',
         honeypotLabel: '회사명',
         fields: [
           '이민 — ART 재심 (거절·취소)',
@@ -758,6 +813,7 @@ export const CONTENT = {
             h: '6. 웹사이트 문의 폼',
             ps: [
               '상담 신청 폼으로 제출된 정보는 문의 응대와 상담 일정 조율 목적으로만 사용되며 사무실 이메일로 전송됩니다. 귀하의 동의 없이 문의 정보를 마케팅에 사용하지 않습니다.',
+              '폼 제출 내용은 제3자 폼 전송 서비스인 FormSubmit을 경유하여 사무실 이메일로 전달되며, 해당 서비스의 서버는 해외(미국 포함)에 위치할 수 있습니다. 폼을 제출하시면 이러한 전송에 동의하는 것으로 간주됩니다. 폼에는 상담 일정 조율에 필요한 정보만 기재해 주시고, 여권번호·상세 사건 기록 등 고도의 민감정보는 폼으로 제출하지 마시기 바랍니다. 이러한 자료는 상담 확정 후 안전한 방법으로 전달받겠습니다.',
             ],
           },
           {

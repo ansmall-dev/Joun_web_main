@@ -1,66 +1,13 @@
-import { useEffect, useRef, useState } from 'react'
 import { useLang } from '../i18n/LanguageContext.jsx'
 import Reveal from './Reveal.jsx'
 
-// 스크롤 진입 시 0 → 목표값으로 카운트업
-function useCountUp(target, start, duration = 1800) {
-  const [value, setValue] = useState(0)
-
-  useEffect(() => {
-    if (!start) return
-    let raf
-    const t0 = performance.now()
-    const tick = (now) => {
-      const progress = Math.min((now - t0) / duration, 1)
-      const eased = 1 - Math.pow(1 - progress, 3)
-      setValue(Math.round(target * eased))
-      if (progress < 1) raf = requestAnimationFrame(tick)
-    }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
-  }, [start, target, duration])
-
-  return value
-}
-
-function Stat({ stat, start }) {
-  const value = useCountUp(stat.value, start)
-  return (
-    <div>
-      <div className="stat__value">
-        {value.toLocaleString()}
-        {stat.suffix}
-      </div>
-      <div className="stat__label">{stat.label}</div>
-      <div className="stat__desc">{stat.desc}</div>
-    </div>
-  )
-}
-
+// 조은의 약속 — 정성적 원칙 카드 (기존 숫자 카운터는 근거 미확정으로 제거, v1.0)
 export default function Stats() {
   const { t } = useLang()
   const { stats } = t
-  const ref = useRef(null)
-  const [start, setStart] = useState(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setStart(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.4 },
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
 
   return (
-    <section className="stats section--fit" id="why-joun" ref={ref}>
+    <section className="stats section--fit section--fill" id="why-joun">
       <div className="container text-center">
         <Reveal>
           <p className="section-label section-label--center stats__label">{stats.label}</p>
@@ -70,8 +17,14 @@ export default function Stats() {
           </h2>
         </Reveal>
         <div className="stats__grid">
-          {stats.items.map((s) => (
-            <Stat key={s.label} stat={s} start={start} />
+          {stats.items.map((s, i) => (
+            <Reveal key={s.label} delay={i * 120}>
+              <div>
+                <div className="stat__value stat__value--word">{s.value}</div>
+                <div className="stat__label">{s.label}</div>
+                <div className="stat__desc">{s.desc}</div>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

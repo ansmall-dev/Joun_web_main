@@ -13,6 +13,11 @@ export function LanguageProvider({ children }) {
   useEffect(() => {
     localStorage.setItem('joun-lang', lang)
     document.documentElement.lang = lang
+    // 선택 언어에 맞춰 문서 타이틀·메타 설명 동기화 (F-07)
+    const meta = CONTENT[lang].meta
+    document.title = meta.title
+    const desc = document.querySelector('meta[name="description"]')
+    if (desc) desc.setAttribute('content', meta.description)
   }, [lang])
 
   return (

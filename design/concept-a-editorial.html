@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>시안 A — Editorial Ink | Joun Lawyers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300..700&family=DM+Mono:wght@400;500&family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#f4f2ed;
+  --paper-2:#eae6dd;
+  --ink:#15130f;
+  --ink-70:rgba(21,19,15,.7);
+  --ink-50:rgba(21,19,15,.5);
+  --rule:rgba(21,19,15,.15);
+  --rule-soft:rgba(21,19,15,.08);
+  --navy:#1b3a57;
+  --max:1280px;
+  --serif:'Instrument Serif','Noto Serif KR',serif;
+  --sans:'DM Sans','Noto Sans KR',sans-serif;
+  --mono:'DM Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 40px}
+.mono{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
+
+/* ---------- mock tag ---------- */
+.mock-tag{
+  position:fixed;left:16px;bottom:16px;z-index:99;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
+  background:var(--ink);color:var(--paper);padding:8px 14px;opacity:.82;
+}
+
+/* ---------- header ---------- */
+.hdr{
+  position:sticky;top:0;z-index:50;
+  background:rgba(244,242,237,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+.hdr__in{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{display:flex;align-items:baseline;gap:12px}
+.brand__mark{font-family:var(--serif);font-size:1.5rem;letter-spacing:.01em}
+.brand__sub{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;color:var(--ink-50)}
+.nav{display:flex;gap:34px}
+.nav a{font-size:.83rem;letter-spacing:.01em;color:var(--ink-70);padding-bottom:2px;border-bottom:1px solid transparent}
+.nav a:hover{color:var(--ink);border-color:var(--ink)}
+.hdr__end{display:flex;align-items:center;gap:22px}
+.lang{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;color:var(--ink-50)}
+.lang b{color:var(--ink);font-weight:500}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.82rem;font-weight:500;letter-spacing:.04em;
+  padding:13px 22px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);
+  transition:background .2s,color .2s;
+}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn--ghost{background:transparent;color:var(--ink)}
+.btn--ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* ---------- hero ---------- */
+.hero{border-bottom:1px solid var(--ink);padding:0}
+.hero__meta{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 0;border-bottom:1px solid var(--rule);
+  color:var(--ink-50);
+}
+.hero__body{padding:78px 0 64px}
+h1{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(2.6rem,6.6vw,5.6rem);line-height:1.02;letter-spacing:-.015em;
+  max-width:15ch;
+}
+h1 em{font-style:italic;color:var(--navy)}
+.hero__cols{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:80px;
+  margin-top:56px;padding-top:34px;border-top:1px solid var(--rule);
+}
+.hero__lead{font-size:1.08rem;font-weight:300;color:var(--ink-70);max-width:46ch}
+.hero__acts{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+.idxlist{display:flex;flex-direction:column}
+.idxlist a{
+  display:flex;align-items:baseline;gap:16px;
+  padding:14px 0;border-bottom:1px solid var(--rule);
+}
+.idxlist a:first-child{border-top:1px solid var(--rule)}
+.idxlist .n{font-family:var(--mono);font-size:.68rem;color:var(--navy)}
+.idxlist .t{font-family:var(--serif);font-size:1.35rem}
+.idxlist .d{margin-left:auto;font-size:.78rem;color:var(--ink-50)}
+.hero__trust{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--ink);
+}
+.hero__trust > div{
+  padding:22px 0;color:var(--ink-70);
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+}
+.hero__trust > div + div{border-left:1px solid var(--rule);padding-left:28px}
+
+/* ---------- section scaffolding ---------- */
+section{border-bottom:1px solid var(--rule)}
+.rail{
+  display:flex;align-items:baseline;gap:18px;
+  padding:22px 0;border-bottom:1px solid var(--rule);
+  color:var(--ink-50);
+}
+.rail .num{font-family:var(--mono);font-size:.7rem;color:var(--navy)}
+.rail .name{font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase}
+.rail .ko{margin-left:auto;font-size:.75rem;color:var(--ink-50)}
+h2{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(2rem,4.2vw,3.4rem);line-height:1.1;letter-spacing:-.01em;
+}
+h2 em{font-style:italic;color:var(--navy)}
+
+/* ---------- about ---------- */
+.about{padding-bottom:88px}
+.about__grid{display:grid;grid-template-columns:5fr 7fr;gap:72px;padding-top:64px}
+.figure figcaption{
+  display:flex;justify-content:space-between;gap:16px;
+  margin-top:14px;padding-top:12px;border-top:1px solid var(--rule);
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-50);
+}
+.figure img{
+  width:100%;aspect-ratio:4/5;object-fit:cover;object-position:60% 30%;
+  filter:grayscale(1) contrast(1.06) brightness(1.02);
+}
+.about__lead{font-family:var(--serif);font-size:1.85rem;line-height:1.35;letter-spacing:-.01em;max-width:22ch}
+.about__bio{margin-top:26px;font-weight:300;color:var(--ink-70);max-width:54ch}
+.sig{margin-top:34px;padding-top:20px;border-top:1px solid var(--rule)}
+.sig strong{font-family:var(--serif);font-weight:400;font-size:1.3rem;display:block}
+.sig span{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-50)}
+.values{margin-top:40px}
+.values > div{
+  display:grid;grid-template-columns:36px 1fr;gap:20px;
+  padding:18px 0;border-top:1px solid var(--rule);
+}
+.values .n{font-family:var(--mono);font-size:.68rem;color:var(--navy)}
+.values h3{font-family:var(--sans);font-size:.95rem;font-weight:500;margin-bottom:2px}
+.values p{font-size:.88rem;font-weight:300;color:var(--ink-50)}
+
+/* ---------- practice index ---------- */
+.practice{padding-bottom:0}
+.practice__head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;padding:64px 0 40px}
+.practice__head p{font-weight:300;color:var(--ink-70);max-width:38ch;font-size:.95rem}
+.grouprow{
+  display:flex;align-items:baseline;gap:16px;
+  padding:26px 0 10px;
+}
+.grouprow .g{font-family:var(--serif);font-size:1.5rem}
+.grouprow .tag{font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);border:1px solid var(--rule);padding:4px 10px}
+.row{
+  display:grid;grid-template-columns:58px minmax(0,1fr) 230px 32px;
+  align-items:center;gap:24px;
+  padding:24px 0;border-top:1px solid var(--rule);
+  transition:background .25s ease,color .25s ease,padding .25s ease;
+}
+.row:last-child{border-bottom:1px solid var(--rule)}
+.row .n{font-family:var(--mono);font-size:.68rem;color:var(--navy);transition:color .25s}
+.row .t{font-family:var(--serif);font-size:clamp(1.15rem,2vw,1.65rem);line-height:1.2}
+.row .d{font-size:.84rem;font-weight:300;color:var(--ink-50);transition:color .25s}
+.row .a{font-family:var(--mono);font-size:.9rem;text-align:right;color:var(--ink-50);transition:transform .25s,color .25s}
+.row:hover{background:var(--ink);color:var(--paper);padding-left:22px;padding-right:22px}
+.row:hover .n{color:#8fb3cf}
+.row:hover .d{color:rgba(244,242,237,.62)}
+.row:hover .a{color:var(--paper);transform:translateX(6px)}
+.practice__foot{padding:34px 0 78px;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.practice__foot span{font-size:.85rem;color:var(--ink-50);font-weight:300}
+
+/* ---------- figures ---------- */
+.figures{background:var(--paper-2)}
+.figures__grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.figures__grid > div{padding:64px 0 60px}
+.figures__grid > div + div{border-left:1px solid var(--rule);padding-left:44px}
+.figures b{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,7.5vw,5.6rem);line-height:1;display:block;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.figures h3{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;margin-top:18px;font-weight:400}
+.figures p{font-size:.85rem;font-weight:300;color:var(--ink-50);margin-top:6px}
+
+/* ---------- testimonial ---------- */
+.quote{padding:78px 0 30px}
+.quote blockquote{
+  font-family:var(--serif);font-style:italic;
+  font-size:clamp(1.5rem,3.4vw,2.6rem);line-height:1.35;letter-spacing:-.01em;
+  max-width:24ch;
+}
+.quote blockquote::before{content:'“';color:var(--navy)}
+.quote blockquote::after{content:'”';color:var(--navy)}
+.quote__by{margin-top:30px;display:flex;align-items:baseline;gap:14px}
+.quote__by strong{font-weight:500;font-size:.95rem}
+.quote__by span{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-50)}
+.others{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);margin-top:56px}
+.others > div{padding:22px 0 60px}
+.others > div + div{border-left:1px solid var(--rule);padding-left:26px}
+.others strong{display:block;font-weight:500;font-size:.88rem;margin-bottom:4px}
+.others span{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-50)}
+.stars{color:var(--navy);letter-spacing:.16em;font-size:.7rem;margin-bottom:10px}
+
+/* ---------- cta strip ---------- */
+.strip{background:var(--ink);color:var(--paper);border:0}
+.strip__in{display:flex;align-items:center;justify-content:space-between;gap:48px;padding:62px 0}
+.strip h2{max-width:18ch}
+.strip h2 em{color:#9dbdd6}
+.strip .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.strip .btn:hover{background:transparent;color:var(--paper)}
+
+/* ---------- contact ---------- */
+.contact{padding-bottom:90px}
+.contact__grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;padding-top:60px}
+.colophon dl{margin-top:8px}
+.colophon .r{display:grid;grid-template-columns:110px 1fr;gap:20px;padding:16px 0;border-top:1px solid var(--rule)}
+.colophon dt{font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-50);padding-top:3px}
+.colophon dd{font-size:.95rem;font-weight:300}
+.map{margin-top:28px;height:200px;border:1px solid var(--rule);width:100%;filter:grayscale(1) contrast(1.05)}
+form{display:grid;gap:22px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+label{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-50);margin-bottom:8px}
+input,select,textarea{
+  width:100%;font-family:var(--sans);font-size:.95rem;color:var(--ink);
+  background:transparent;border:0;border-bottom:1px solid var(--rule);
+  padding:8px 0 10px;outline:none;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--ink)}
+textarea{resize:vertical;min-height:76px}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:.78rem;font-weight:300;color:var(--ink-50)}
+.consent input{width:auto;border-bottom:0}
+form .btn{width:100%;justify-content:center;padding:17px;background:var(--navy);border-color:var(--navy);color:#fff}
+form .btn:hover{background:transparent;color:var(--navy)}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:var(--paper);border:0}
+.f__top{display:grid;grid-template-columns:2.2fr 1fr 1fr 1.4fr;gap:48px;padding:74px 0 56px}
+.f__brand .brand__mark{font-size:1.6rem}
+.f__top p{font-size:.85rem;font-weight:300;color:rgba(244,242,237,.55);margin-top:16px;max-width:38ch}
+.f__top h4{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,242,237,.45);margin-bottom:18px;font-weight:400}
+.f__top li{list-style:none;font-size:.85rem;font-weight:300;color:rgba(244,242,237,.75);padding:5px 0}
+.f__cred div{padding:8px 0;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:rgba(244,242,237,.75)}
+.f__cred span{color:rgba(244,242,237,.4)}
+.f__bot{border-top:1px solid rgba(244,242,237,.14);padding:24px 0 40px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.f__bot p{font-size:.72rem;color:rgba(244,242,237,.45);max-width:70ch;font-weight:300}
+.f__bot nav{display:flex;gap:22px;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,242,237,.6)}
+
+@media (max-width:960px){
+  .wrap{padding:0 22px}
+  .nav,.lang{display:none}
+  .hero__cols,.about__grid,.contact__grid{grid-template-columns:1fr;gap:40px}
+  .figures__grid,.others{grid-template-columns:1fr}
+  .figures__grid > div + div,.others > div + div{border-left:0;border-top:1px solid var(--rule);padding-left:0}
+  .row{grid-template-columns:40px 1fr 28px;gap:14px}
+  .row .d{display:none}
+  .strip__in{flex-direction:column;align-items:flex-start}
+  .f__top{grid-template-columns:1fr 1fr;gap:32px}
+}
+</style>
+</head>
+<body>
+
+<div class="mock-tag">시안 A · Editorial Ink</div>
+
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <div class="brand">
+      <span class="brand__mark">JOUN LAWYERS</span>
+      <span class="brand__sub">조은법률 조은이민</span>
+    </div>
+    <nav class="nav">
+      <a href="#about">About Us</a>
+      <a href="#practice">Practice Areas</a>
+      <a href="#figures">Why Joun</a>
+      <a href="#voices">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hdr__end">
+      <span class="lang"><b>EN</b> / KO</span>
+      <a href="#contact" class="btn">Book a Consultation</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__meta mono">
+      <span>Sydney · Australia</span>
+      <span>MARN 0741800 &nbsp;·&nbsp; JP No. 183656 &nbsp;·&nbsp; ABN 98 716 989 655</span>
+    </div>
+  </div>
+  <div class="wrap hero__body">
+    <h1>Your new chapter in Australia, <em>Joun</em> walks with you</h1>
+    <div class="hero__cols">
+      <div>
+        <p class="hero__lead">Law and migration under one roof — from visa appeals to contracts, property and estates, your one-stop legal partner for the Korean-Australian community.</p>
+        <div class="hero__acts">
+          <a href="#contact" class="btn">Book a Consultation</a>
+          <a href="#practice" class="btn btn--ghost">Explore Our Services</a>
+        </div>
+      </div>
+      <div class="idxlist">
+        <a href="#practice"><span class="n">01</span><span class="t">Joun Migration</span><span class="d">ART · 482 · 186 · 820 · 500</span></a>
+        <a href="#practice"><span class="n">02</span><span class="t">Joun Legal</span><span class="d">Contracts · Property · Estates</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="hero__trust">
+      <div>Korean &amp; English</div>
+      <div>Strictly Confidential</div>
+      <div>Transparent Fees</div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="rail">
+      <span class="num">01</span><span class="name">About Us — Greeting</span><span class="ko">인사말</span>
+    </div>
+    <div class="about__grid">
+      <figure class="figure">
+        <img src="../src/assets/profile.png" alt="Dow Park, Principal" />
+        <figcaption><span>Dow Park</span><span>Principal · RMA</span></figcaption>
+      </figure>
+      <div>
+        <p class="about__lead">Your case, handled like our own.</p>
+        <p class="about__bio">Joun Lawyers is a legal and migration practice that has grown together with the Korean community in Australia. When complex visa issues or legal disputes leave you feeling lost, we provide an accurate diagnosis and a realistic path forward — with courtesy and care.</p>
+        <div class="sig">
+          <strong>Dow Park</strong>
+          <span>Principal · Registered Migration Agent</span>
+        </div>
+        <div class="values">
+          <div><span class="n">i</span><div><h3>Honest risk assessment</h3><p>We are transparent about the prospects and risks of your case from day one.</p></div></div>
+          <div><span class="n">ii</span><div><h3>Your case, like our own</h3><p>Every matter is prepared as if it were our own family’s.</p></div></div>
+          <div><span class="n">iii</span><div><h3>Committed to the end</h3><p>From lodgement to outcome, we keep you informed at every step.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="practice" id="practice">
+  <div class="wrap">
+    <div class="rail">
+      <span class="num">02</span><span class="name">Practice Areas</span><span class="ko">서비스 분야</span>
+    </div>
+    <div class="practice__head">
+      <h2>Migration &amp; Law, <em>under one roof</em></h2>
+      <p>Visa problems and legal problems rarely come alone. Joun offers an integrated solution covering both.</p>
+    </div>
+
+    <div class="grouprow"><span class="g">Joun Migration</span><span class="tag">Migration</span></div>
+    <a class="row" href="#contact">
+      <span class="n">01</span>
+      <span class="t">ART Appeals — Refusal &amp; Cancellation</span>
+      <span class="d">Lodging a review in time can win your chance back.</span>
+      <span class="a">→</span>
+    </a>
+    <a class="row" href="#contact">
+      <span class="n">02</span>
+      <span class="t">Employer Sponsored Visas <em style="font-style:normal;opacity:.45;font-size:.72em"> SC 482 · 186</em></span>
+      <span class="d">Tailored strategies for sponsoring businesses and skilled applicants.</span>
+      <span class="a">→</span>
+    </a>
+    <a class="row" href="#contact">
+      <span class="n">03</span>
+      <span class="t">Partner Visas <em style="font-style:normal;opacity:.45;font-size:.72em"> SC 820 · 801 · 309 · 100</em></span>
+      <span class="d">From evidencing your relationship to preparing documents.</span>
+      <span class="a">→</span>
+    </a>
+    <a class="row" href="#contact">
+      <span class="n">04</span>
+      <span class="t">Student &amp; Graduate Visas <em style="font-style:normal;opacity:.45;font-size:.72em"> SC 500 · 485</em></span>
+      <span class="d">A roadmap around your study plans and post-graduation career.</span>
+      <span class="a">→</span>
+    </a>
+
+    <div class="grouprow" style="margin-top:34px"><span class="g">Joun Legal</span><span class="tag">Legal</span></div>
+    <a class="row" href="#contact">
+      <span class="n">05</span>
+      <span class="t">Contract Review &amp; Drafting</span>
+      <span class="d">We flag risky clauses before they become disputes.</span>
+      <span class="a">→</span>
+    </a>
+    <a class="row" href="#contact">
+      <span class="n">06</span>
+      <span class="t">Property &amp; Conveyancing</span>
+      <span class="d">Navigate Australian property transactions safely.</span>
+      <span class="a">→</span>
+    </a>
+    <a class="row" href="#contact">
+      <span class="n">07</span>
+      <span class="t">Wills &amp; Estates</span>
+      <span class="d">Prepare your family’s future through wills and administration.</span>
+      <span class="a">→</span>
+    </a>
+    <a class="row" href="#contact">
+      <span class="n">08</span>
+      <span class="t">Dispute Resolution &amp; Litigation</span>
+      <span class="d">From negotiation to litigation, your interests come first.</span>
+      <span class="a">→</span>
+    </a>
+
+    <div class="practice__foot">
+      <span>Not sure which applies to you? Start with a consultation — we will tell you honestly.</span>
+      <a href="#contact" class="btn btn--ghost">Discuss your case</a>
+    </div>
+  </div>
+</section>
+
+<section class="figures" id="figures">
+  <div class="wrap">
+    <div class="rail">
+      <span class="num">03</span><span class="name">Why Joun — Our Promise</span><span class="ko">조은의 약속</span>
+    </div>
+    <div class="figures__grid">
+      <div><b>15+</b><h3>Years of Experience</h3><p>in legal &amp; migration practice</p></div>
+      <div><b>97%</b><h3>Success Rate</h3><p>across major visa categories</p></div>
+      <div><b>2,400+</b><h3>Cases Resolved</h3><p>and counting</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="quote" id="voices">
+  <div class="wrap">
+    <blockquote>They managed every detail of the appeal — and thanks to them, our whole family could stay in Australia.</blockquote>
+    <div class="quote__by"><strong>Mr. Kim</strong><span>ART Appeal · Visa Refusal</span></div>
+    <div class="others">
+      <div><div class="stars">★★★★★</div><strong>Ms. Park</strong><span>Employer Sponsored</span></div>
+      <div><div class="stars">★★★★★</div><strong>Ms. Lee</strong><span>Partner Visa</span></div>
+      <div><div class="stars">★★★★★</div><strong>Mr. Choi</strong><span>Contract Review</span></div>
+      <div><div class="stars">★★★★★</div><strong>Ms. Jung</strong><span>Wills &amp; Estates</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap strip__in">
+    <h2>Clear advice, <em>best solutions</em>. Talk to Joun today.</h2>
+    <a href="#contact" class="btn">Book a Consultation</a>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="rail">
+      <span class="num">04</span><span class="name">Contact</span><span class="ko">오시는 길 · 상담 예약</span>
+    </div>
+    <div class="contact__grid">
+      <div class="colophon">
+        <h2>Visit Us · <em>Book a Consultation</em></h2>
+        <dl>
+          <div class="r"><dt>Office</dt><dd>Suite 310, 33-43 Rowe St,<br />Eastwood NSW 2122</dd></div>
+          <div class="r"><dt>Phone</dt><dd>0432 009 862</dd></div>
+          <div class="r"><dt>SMS Only</dt><dd>0432 009 862</dd></div>
+          <div class="r"><dt>Email</dt><dd>info@jounlawyer.com</dd></div>
+          <div class="r"><dt>Hours</dt><dd>Mon–Fri 9:00 AM – 5:00 PM (by appointment)</dd></div>
+        </dl>
+        <iframe class="map" src="https://maps.google.com/maps?q=33-43%20Rowe%20St%2C%20Eastwood%20NSW%202122&z=17&output=embed" title="Joun Lawyers Office Location" loading="lazy"></iframe>
+      </div>
+      <form onsubmit="return false">
+        <div class="f2">
+          <div><label>Name</label><input placeholder="Hong Gil-dong" /></div>
+          <div><label>Phone</label><input placeholder="04XX XXX XXX" /></div>
+        </div>
+        <div class="f2">
+          <div><label>Email</label><input placeholder="you@email.com" /></div>
+          <div><label>Preferred Date &amp; Time</label><input placeholder="e.g. Tue 10 AM" /></div>
+        </div>
+        <div>
+          <label>Area of Enquiry</label>
+          <select>
+            <option>Select an area</option>
+            <option>Migration — ART Appeal (Refusal · Cancellation)</option>
+            <option>Migration — Employer Sponsored Visa</option>
+            <option>Migration — Partner Visa</option>
+            <option>Legal — Contracts</option>
+            <option>Legal — Property</option>
+            <option>Other / Not sure</option>
+          </select>
+        </div>
+        <div>
+          <label>How Can We Help?</label>
+          <textarea placeholder="Briefly describe your situation (e.g. visa type, date of refusal notice)."></textarea>
+        </div>
+        <label class="consent"><input type="checkbox" /> I consent to the collection and use of my personal information. It will be used solely for this consultation and destroyed afterwards.</label>
+        <button class="btn">Submit Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f__top">
+      <div class="f__brand">
+        <span class="brand__mark">JOUN LAWYERS</span>
+        <p>Integrated legal and migration services for the Korean community in Australia. Protecting your tomorrow with accurate advice and genuine care.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li>ART Appeals</li>
+          <li>Employer Sponsored Visas</li>
+          <li>Partner Visas</li>
+          <li>Contracts · Property · Estates</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Firm</h4>
+        <ul>
+          <li>About Us</li>
+          <li>Why Joun</li>
+          <li>Testimonials</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+      <div class="f__cred">
+        <h4>Registrations</h4>
+        <div><span>Registered Migration Agent</span><br />MARN 0741800</div>
+        <div><span>Justice of the Peace</span><br />JP No. 183656</div>
+        <div><span>Legal Practice</span><br />NSW Law Society</div>
+      </div>
+    </div>
+    <div class="f__bot">
+      <p>The content of this website is provided for general information only and does not constitute legal advice. Please seek advice on your individual circumstances through a consultation. © 2026 Joun Lawyers. All rights reserved.</p>
+      <nav><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Code of Conduct</a></nav>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

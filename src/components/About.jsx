@@ -1,7 +1,7 @@
 import { SITE } from '../data/content.js'
 import { useLang } from '../i18n/LanguageContext.jsx'
 import Reveal from './Reveal.jsx'
-import profile from '../assets/profile.png'
+import profile from '../assets/profile.webp'
 
 export default function About() {
   const { t } = useLang()
@@ -13,7 +13,7 @@ export default function About() {
         <div className="about__grid">
           <Reveal className="about__portrait-wrap">
             <div className="about__portrait">
-              <img src={profile} alt={about.portraitNote} />
+              <img src={profile} alt={about.portraitNote} width="880" height="1100" loading="lazy" />
             </div>
             <div className="about__badge">
               <div className="about__badge-label">{about.badgeLabel}</div>

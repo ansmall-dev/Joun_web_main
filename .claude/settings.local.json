@@ -17,7 +17,12 @@
       "PowerShell(Get-ChildItem $env:USERPROFILE\\\\Downloads, $env:USERPROFILE\\\\Desktop -File -ErrorAction SilentlyContinue | Where {$_.Extension -match 'png|jpe?g|svg|webp' -and $_.LastWriteTime -gt \\(Get-Date\\).AddDays\\(-3\\)} | Sort LastWriteTime -Desc | Select FullName,Length,LastWriteTime | Format-Table -Auto)",
       "PowerShell(Copy-Item \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\Profile.png\" \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\src\\\\assets\\\\profile.png\")",
       "Bash(git checkout *)",
-      "PowerShell(npm run build)"
+      "PowerShell(npm run build)",
+      "PowerShell(Copy-Item \"C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-User-Desktop-Joun-web-main\\\\463506a5-f9a0-4326-b39b-1a53d43251e6\\\\scratchpad\\\\images.mjs\" \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\tmp-images.mjs\")",
+      "PowerShell(node \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\tmp-images.mjs\")",
+      "PowerShell(Copy-Item \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\src\\\\assets\\\\logo.svg\" \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\public\\\\favicon.svg\")",
+      "PowerShell(git -C \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\" rm -r --cached .vite --quiet)",
+      "PowerShell(git -C \"C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\" status --short)"
     ]
   }
 }
