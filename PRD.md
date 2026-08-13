@@ -2,8 +2,8 @@
 
 | 항목 | 내용 |
 |---|---|
-| 문서 버전 | v0.6 (Joun Visa 리브랜딩 — 헤더 로고·브랜드명 교체, 대표 프로필 사진 적용) |
-| 작성일 | 2026-08-12 (v0.6 업데이트: 2026-08-13) |
+| 문서 버전 | v0.7 (Joun Visa 로고 확정 — 여권 배지 마크 채택, 푸터 공신력 로고 레이아웃 개편) |
+| 작성일 | 2026-08-12 (v0.7 업데이트: 2026-08-13) |
 | 프로젝트명 | 조은법률 조은이민 (Joun Lawyers) 웹사이트 구축 |
 | 주 벤치마크 | [정성이민 (myjeongseong.com)](https://myjeongseong.com/) |
 | 보조 벤치마크 | [Kris Ahn Lawyers](https://krisahn.com.au/) · [Kah Lawyers](https://kahlawyers.com/) · [AILS (australiavisa.com)](https://www.australiavisa.com/) · [Park & Co Lawyers](https://parklawyers.com.au/) |
@@ -171,12 +171,14 @@ Home
   - 배경: 화이트 + 라이트 그레이
 - **타이포그래피**: 한글 — Pretendard 또는 Noto Sans KR / 제목용 세리프(명조) 병행 검토 (법률 사무소의 격조)
 
-### 6.1a 로고 리뉴얼 — Joun Visa (✅ v1 적용, 2026-08-13)
+### 6.1a 로고 리뉴얼 — Joun Visa (✅ v2 확정, 2026-08-13)
 - **네이밍**: "Joun Lawyers" → **"Joun Visa"** — 헤더 브랜드 텍스트에 반영 완료 (EN: "Joun Visa" / KO 부제: "JOUN VISA")
-- **적용 로고**: `src/assets/logo.svg` (v0.6 신규 제작) — **JV 모노그램**(차콜 J + 버건디 V, 기존 JL의 후속) + 세리프 워드마크 "Joun / Visa" 2단 구성, 투명 배경
-- **컬러**: 기존 브랜드 토큰 계승 — J·Visa = 차콜 `#2E2620` / V·Joun = 버건디 `#8B1A1A`
-- **색 전환**: 기존 규칙 유지 — 히어로(버건디) 위 흰색 필터, 솔리드 헤더에서 원본색
-- **남은 적용 범위**: 파비콘·OG 이미지는 아직 구 로고/미적용 — 추후 교체 (12.2 참조). 초기 시안(비자 스탬프 컨셉, 네이비/골드 팔레트)은 미채택
+- **확정 로고**: `src/assets/logo.svg` — **여권 배지(Passport Badge) 마크**. 라운드 사각 버건디 배지 안에 JV 모노그램 + 내부 보더 + 하단 MRZ 점선(여권 커버 모티프), 투명 배경 SVG
+- **시안 3종 중 채택**: V1 비자 스탬프(원형 스탬프 + 비행 궤적) / **V2 여권 배지 ← 채택** / V3 미니멀 체크(V=승인 체크마크). 시안 원본은 `src/assets/joun-visa-logo-v1~v3.svg`로 보존 — 워드마크 포함 풀 조합 버전이 필요할 때(푸터·명함·OG 이미지) 재사용 가능
+- **헤더에서는 마크만 사용**: 헤더에 이미 "Joun Visa / JOUN VISA" 브랜드 텍스트가 로고 옆에 별도 표시되므로, 워드마크를 뺀 배지 마크 단독으로 적용해 텍스트 중복 방지
+- **컬러**: 기존 브랜드 토큰 계승 — 배지 = 버건디 `#8B1A1A`, 내부 요소는 knockout(투명)
+- **색 전환 대응(knockout 기법)**: 헤더 로고는 히어로(버건디) 위에서 `brightness(0) invert(1)` 필터로 흰색 전환되는데, 통짜 배지를 그대로 두면 흰 사각형이 되어 형태가 사라짐 → **JV 글자·내부 보더·MRZ 점선을 SVG mask로 뚫어** 히어로 위에서는 흰 배지 실루엣, 솔리드 헤더에서는 버건디 배지로 자연스럽게 전환되도록 처리
+- **남은 적용 범위**: 파비콘·OG 이미지는 아직 구 로고/미적용 — 추후 교체 (12.2 참조)
 
 ### 6.2 톤 앤 매너
 - 신뢰감 · 전문성 · 정중함. 과한 장식 없이 여백을 살린 정돈된 레이아웃
@@ -247,7 +249,20 @@ Home
 
 ---
 
-## 12. 개발 진행 현황 (2026-08-12 기준, v0.4)
+## 12. 개발 진행 현황 (2026-08-13 기준, v0.7)
+
+### 12.0d v0.7 변경 사항 ✅ (2026-08-13)
+
+**Joun Visa 로고 최종 확정 + 푸터 공신력 로고 레이아웃 개편**
+
+1. **로고 시안 3종 제작 → V2(여권 배지) 채택** — 기존 브랜드 팔레트(버건디 `#8B1A1A` + 차콜 `#2E2620`)를 유지한 3개 방향을 제시하고 클라이언트가 V2 선택. 시안 파일은 `src/assets/joun-visa-logo-v1.svg` / `-v2.svg` / `-v3.svg`로 보존 (6.1a 참조)
+2. **헤더 로고 교체** (`src/assets/logo.svg`) — V2 여권 배지 마크로 교체. 헤더 브랜드 텍스트와의 중복을 피해 워드마크 제외, 마크만 사용. 흰색 반전 필터에서도 형태가 유지되도록 **SVG mask knockout** 적용 (JV 글자·보더·MRZ 점선을 투명 처리)
+3. **Justice of the Peace 실(seal) 재제작** (`src/assets/jp-logo.svg`) — 기존 NSW Justices Association 크레스트를 클라이언트 제공 이미지 기준의 **레드 원형 실**로 교체: 스캘럽(물결) 테두리 + 레드 라디얼 그라데이션 + 글로시 하이라이트 + 이탤릭 세리프 "Justice of the Peace". 흰 배경 박스 제거하고 완전 투명 배경으로 제작
+4. **푸터 로고 레이아웃 개편** (`Footer.jsx` + `global.css`) — 배지 박스 **안 우측**에 작게(34–38px) 붙어 있던 로고들을 **박스 밖 오른쪽 별도 컬럼**으로 분리하고 크게 확대
+   - 배지 박스는 텍스트만 표시 (Registered Migration Agent / Justice of the Peace / Legal Practice)
+   - 오른쪽 로고 컬럼: MARA 로고(약 145px 폭) → MARA 등록번호 배지(145×95px) → JP 실(110×110px) 세로 스택, 가운데 정렬
+   - 푸터 그리드를 4컬럼 → **5컬럼**(`4fr 2.2fr 2.2fr 2.8fr 2fr`)으로 확장, 로고 크기는 `.footer__logo-img--*`의 `max-width`로 조정 가능
+5. **MARA 등록번호 확인** — 박두우 법무사님의 **MARN 0741800**이 `SITE.marn` 단일 소스로 관리되며 등록번호 배지 이미지에도 동일 반영됨을 확인 (참고 이미지의 샘플 번호 0211214 아님)
 
 ### 12.0c v0.6 변경 사항 ✅ (2026-08-13)
 
@@ -320,7 +335,7 @@ Home
 | 5 | 차별점 | 스크롤 트리거 숫자 카운터 — 15+년 / 97% / 2,400+건 (수치는 플레이스홀더) |
 | 6 | 고객 후기 | 캐러셀 5개(별점·익명 이름·케이스 유형), 이전/다음 + 도트 내비 |
 | 7 | 상담 배너 + 오시는 길 | 버건디 리드 배너, 연락처·카카오톡 링크·지도 플레이스홀더, 상담 예약 폼 |
-| — | 푸터 | MARN/NAATI/NSW 배지, 서비스·사무소 링크, Terms/Privacy, 법적 면책 문구 |
+| — | 푸터 | 자격 배지(MARN·JP·NSW Law Society) + 우측 공신력 로고 컬럼(MARA·등록번호·JP 실, v0.7 개편), 서비스·사무소 링크, Terms/Privacy, 법적 면책 문구 |
 | — | 플로팅 버튼 | 모바일 전용 전화·카카오톡 버튼 (F-06) |
 
 **상담 예약 폼** (5.5 요구사항 반영)
@@ -336,7 +351,10 @@ Home
     ├── data/content.js          ← 모든 콘텐츠 단일 관리 (F-04) — CONTENT.en / CONTENT.ko 이중 사전 (F-08)
     ├── i18n/LanguageContext.jsx ← 영/한 언어 상태 관리 (기본 en, localStorage 유지)
     ├── hooks/useReveal.js
-    ├── assets/logo.svg (Joun Visa — 헤더 사용) · logo.jpg · logo.png (구 로고) · profile.png (대표 사진)
+    ├── assets/logo.svg (Joun Visa 여권 배지 마크 — 헤더 사용)
+    │          joun-visa-logo-v1~v3.svg (시안 3종, 워드마크 포함 조합)
+    │          mara-logo.svg · mara-number.svg · jp-logo.svg (푸터 공신력 로고)
+    │          logo.jpg · logo.png (구 로고) · profile.png (대표 사진)
     └── components/  Header · Hero · About · Services · Stats ·
                      Testimonials · CtaBanner · Contact · Footer ·
                      FloatingActions · Reveal
@@ -347,9 +365,9 @@ Home
 - **F-07** sitemap.xml, robots.txt 추가 (배포 시)
 - **F-10** GA4 스크립트 삽입 (배포 시)
 - ~~대표 프로필 사진 → 초상 플레이스홀더 교체~~ → ✅ 완료 (v0.6: `profile.png` 적용)
-- 공식 MARA(OMARA)·NSW JP 로고 원본 파일 확보 시 → `src/assets/mara-logo.svg` / `mara-number.svg` / `jp-logo.svg` 교체 (v0.5에서 벡터 재현본 적용 완료 — 선택 사항)
+- 공식 MARA(OMARA)·JP 로고 원본 파일 확보 시 → `src/assets/mara-logo.svg` / `mara-number.svg` / `jp-logo.svg` 교체 (v0.5~v0.7에서 벡터 재현본 적용 완료 — 선택 사항). 단, 원본은 대부분 흰/미색 배경 + 남색·적색 인쇄용이라 다크 브라운 푸터에 얹으려면 배경 제거·리버스 처리 필요
 - 서브 페이지(서비스 상세, 성공사례 게시판, FAQ 등)는 미착수 — 사이트맵 확정 후 진행
-- **Joun Visa 리브랜딩 잔여 범위** — 헤더 로고·브랜드 텍스트는 완료(v0.6). 파비콘, OG 이미지, `index.html` 타이틀·메타태그, 푸터·본문 내 "Joun Lawyers" 표기, 이메일 도메인 표기 등 일괄 교체 여부 확정 필요
+- **Joun Visa 리브랜딩 잔여 범위** — 헤더 로고·브랜드 텍스트 완료(v0.6), 로고 디자인 확정 완료(v0.7). 파비콘, OG 이미지, `index.html` 타이틀·메타태그, 푸터·본문 내 "Joun Lawyers" 표기, 이메일 도메인 표기 등 일괄 교체 여부 확정 필요. 파비콘·OG 이미지는 확정된 여권 배지 마크(및 워드마크 포함 v2 조합)를 그대로 활용 가능
 
 ---
 
