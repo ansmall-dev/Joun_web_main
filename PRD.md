@@ -2,12 +2,13 @@
 
 | 항목 | 내용 |
 |---|---|
-| 문서 버전 | v0.9 (About 섹션 대표 소개 카드 추가) |
-| 작성일 | 2026-08-12 (v0.8 업데이트: 2026-08-13, v0.9 업데이트: 2026-08-13) |
+| 문서 버전 | v1.1 (도메인 jounvisa.com 확정 + 실서버 배포) |
+| 작성일 | 2026-08-12 (최종 업데이트: 2026-08-13, v1.1) |
 | 프로젝트명 | 조은법률 조은이민 (Joun Lawyers) 웹사이트 구축 |
+| 사이트 주소 | **https://jounvisa.com** (Vercel 배포·운영 중) |
 | 주 벤치마크 | [정성이민 (myjeongseong.com)](https://myjeongseong.com/) |
 | 보조 벤치마크 | [Kris Ahn Lawyers](https://krisahn.com.au/) · [Kah Lawyers](https://kahlawyers.com/) · [AILS (australiavisa.com)](https://www.australiavisa.com/) · [Park & Co Lawyers](https://parklawyers.com.au/) |
-| 상태 | 개발 진행 중 — 메인 페이지 v1 + 연락처·폼 연동·구글맵 완료, 사진·서브 페이지 대기 |
+| 상태 | **배포·운영 중** — 메인 페이지 v1.1이 `jounvisa.com`에 게시됨. 남은 작업: 구글 색인 등록(F-07b), 법적 문안·신규 문구 대표 검수(F-11), GA4(F-10), 서브 페이지 |
 | 디자인 원본 | [Figma Make — Professional Law Firm Website](https://www.figma.com/make/wYOdGYyv8PsZJim1vNAaQT/Professional-Law-Firm-Website?t=Eq5SldCayuQhIKJR-1) |
 
 ---
@@ -217,8 +218,8 @@ Home
 - **스타일**: 순수 CSS + 디자인 토큰(CSS 변수) ✅ 적용 — Tailwind 미사용, `src/styles/global.css` 단일 파일
 - **콘텐츠 관리**: 코드 기반 ✅ 적용 — 모든 텍스트·서비스·후기·연락처를 `src/data/content.js` 한 파일에서 관리
 - **폼 처리**: FormSubmit AJAX ✅ 적용 — `Contact.jsx`에서 `https://formsubmit.co/ajax/info@jounlawyer.com`으로 POST, 전송중/실패 상태 UI 포함
-- **호스팅**: Vercel (예정)
-- **도메인**: ❓ 보유 도메인 확인 필요
+- **호스팅**: Vercel ✅ 배포 완료 — GitHub `ansmall-dev/Joun_web_main` `main` 브랜치 연동, push 시 자동 재배포. 프로젝트명 `joun-web-main`, 엣지 리전 `syd1`(시드니)
+- **도메인**: **jounvisa.com** ✅ 확정·연결 완료 (v1.1) — Vercel 등록·관리(네임서버 Vercel, 자동 갱신 ON, 만료 2027-08-12), Vercel CDN·SSL 활성. 사이트 주소는 `jounvisa.com`이지만 **이메일은 `info@jounlawyer.com` 유지**(수신 계정·FormSubmit 엔드포인트 기준)
 
 ---
 
@@ -254,7 +255,21 @@ Home
 
 ---
 
-## 12. 개발 진행 현황 (2026-08-13 기준, v1.0)
+## 12. 개발 진행 현황 (2026-08-13 기준, v1.1)
+
+### 12.0h v1.1 변경 사항 ✅ (2026-08-13)
+
+**도메인 확정(jounvisa.com) + 실서버 배포 + 구글 색인 준비**
+
+1. **도메인 확정 — `jounvisa.com`** (13-4 해소). 기존 가정값 `jounlawyer.com`을 쓰던 8곳을 일괄 교체:
+   - `index.html` — `canonical`, `og:url`, `og:image`, `twitter:image`, JSON-LD `@id`·`url`·`image`·`logo`
+   - `public/robots.txt` — `Sitemap:` 절대 URL
+   - `public/sitemap.xml` — `<loc>` + en-AU/ko `hreflang` alternate 2건
+   - `src/data/content.js` — `SITE.url`
+   - ⚠️ **이메일은 의도적으로 미변경** — `info@jounlawyer.com`이 실제 수신 계정이자 FormSubmit 엔드포인트(`SITE.formEndpoint`)라, 도메인만 바꾸면 상담 폼 수신이 끊김. 향후 `info@jounvisa.com`으로 옮기려면 메일 계정 신설 → FormSubmit 재활성화(확인 메일 1회 승인) 순서 필요
+2. **Vercel 배포·도메인 연결 완료** — GitHub `main` push → 자동 빌드·배포. `jounvisa.com`이 `joun-web-main` 프로젝트에 연결되고 Vercel CDN·SSL(Let's Encrypt/Sectigo CAA) 활성 확인
+3. **실서버 검증** — 배포본 `https://jounvisa.com/`에서 canonical·og:url·og:image·`robots.txt`·`sitemap.xml` 모두 신규 도메인으로 정상 응답 확인 (구도메인 잔재 0건). 프로덕션 빌드 통과
+4. **구글 색인 준비** — canonical/sitemap이 실제 서빙 도메인과 일치하게 되어 Search Console 등록 전제 조건 충족. 등록 절차는 12.2 **F-07b** 참조 (대표님 구글 계정 필요 — 개발자 대행 불가)
 
 ### 12.0g v1.0 변경 사항 ✅ (2026-08-13)
 
@@ -423,14 +438,20 @@ Home
 ### 12.2 남은 작업 (연동 대기) ⏳
 - **F-02** FormSubmit 활성화: 첫 실제 제출 후 `info@jounlawyer.com`으로 오는 확인 메일 1회 승인
 - ~~**F-07** sitemap.xml, robots.txt 추가~~ → ✅ 완료 (v1.0: `public/`에 추가. 도메인 `jounvisa.com` 확정에 따라 `robots.txt`·`sitemap.xml`·`index.html` canonical/OG URL·`SITE.url` 일괄 수정 완료)
-- **F-07b** Google Search Console 등록: `jounvisa.com` 소유권 확인(DNS TXT 또는 HTML 태그) 후 `https://jounvisa.com/sitemap.xml` 제출 — 색인 시작 (수정된 canonical/sitemap 재배포 후 진행)
+- **F-07b Google Search Console 등록** 🔑 — 코드 작업은 v1.1에서 완료됐고, 남은 건 **대표님 구글 계정으로 하는 등록 절차**(개발자 대행 불가). 순서:
+  1. [Search Console](https://search.google.com/search-console)에서 속성 유형 **"도메인"** 선택(URL 접두어 아님) → `jounvisa.com` 입력(`https://`·`www.` 제외) → 발급된 `google-site-verification=...` 문자열 복사
+  2. Vercel → Domains → `jounvisa.com` → DNS Records에 TXT 추가 — **Name 비워둠**(`@`나 도메인명 입력 시 실패), Type `TXT`, Value 위 문자열, TTL `60`. 자물쇠 표시된 CAA 레코드(`pki.goog`·`sectigo.com`)는 SSL 발급용이므로 수정 금지
+  3. Search Console에서 "확인" 클릭 (Vercel 자체 네임서버라 보통 1~2분, 실패 시 5분 후 재시도 — 전파 지연)
+  4. Sitemaps 메뉴에 `sitemap.xml` 제출 → URL 검사에 `https://jounvisa.com/` 넣고 "색인 생성 요청"
+  - 예상 소요: `site:jounvisa.com` 색인 확인까지 수일, 실검색어 순위 반영까지 수 주
+- **F-07c Google 비즈니스 프로필 등록** (권장, 선택) — 구글 지도·로컬 팩 노출은 Search Console이 아닌 별도 서비스 관할. 이스트우드 지역 기반 유입 비중을 고려하면 실질 효과가 큼. 사이트에 `address`·`geo`·`openingHoursSpecification` 구조화 데이터가 이미 반영돼 있어 연동 시 시너지. 등록 시 우편 엽서 또는 전화 인증 필요
 - **F-10** GA4 스크립트 삽입 (배포 시)
 - ~~대표 프로필 사진 → 초상 플레이스홀더 교체~~ → ✅ 완료 (v0.6: `profile.png` 적용)
 - 공식 MARA(OMARA)·JP 로고 원본 파일 확보 시 → `src/assets/mara-logo.svg` / `mara-number.svg` / `jp-logo.svg` 교체 (v0.5~v0.7에서 벡터 재현본 적용 완료 — 선택 사항). 단, 원본은 대부분 흰/미색 배경 + 남색·적색 인쇄용이라 다크 브라운 푸터에 얹으려면 배경 제거·리버스 처리 필요
 - **F-11 법적 문안 검수** ⚠️ — 이용약관·개인정보처리방침·행동강령 3종은 벤치마크 및 호주 표준 관행(APPs, OMARA 행동강령, NSW 변호사 행동규칙)에 근거해 초안 작성한 것으로, **오픈 전 대표 법무사님의 내용 검수·승인 필요**. 특히 비용 약정 방식, 파일 보관 기간(현재 7년으로 기재), 불만 처리 채널 표기가 실제 사무소 운영과 일치하는지 확인 요망. v1.0에서 개인정보처리방침 6조에 **FormSubmit 제3자 경유·해외 서버 고지** 문단이 추가됨 — 함께 검수 필요
 - 서브 페이지(서비스 상세, 성공사례 게시판, FAQ 등)는 미착수 — 사이트맵 확정 후 진행
 - 법적 고지 3종은 현재 모달 방식 — 향후 라우터 도입 시 독립 URL(`/terms`, `/privacy`, `/code-of-conduct`)로 전환하면 SEO·외부 링크 참조에 유리 (선택 사항)
-- **Joun Visa 리브랜딩 잔여 범위** — 헤더 로고·브랜드 텍스트 완료(v0.6), 로고 디자인 확정 완료(v0.7), ~~파비콘·OG 이미지~~ → ✅ 완료 (v1.0: 여권 배지 마크 기반 파비콘 4종 + OG 브랜드 카드). `index.html` 타이틀·메타태그, 푸터·본문 내 "Joun Lawyers" 표기, 이메일 도메인 표기의 일괄 교체 여부는 여전히 확정 필요
+- **Joun Visa 리브랜딩 잔여 범위** — 헤더 로고·브랜드 텍스트 완료(v0.6), 로고 디자인 확정 완료(v0.7), ~~파비콘·OG 이미지~~ → ✅ 완료 (v1.0: 여권 배지 마크 기반 파비콘 4종 + OG 브랜드 카드). ~~도메인~~ → ✅ 확정 (v1.1: `jounvisa.com`). `index.html` 타이틀·메타태그, 푸터·본문 내 "Joun Lawyers" 표기의 일괄 교체 여부는 여전히 확정 필요 — 현재 사이트 주소는 `jounvisa.com`, 브랜드 표기는 헤더만 "Joun Visa"이고 타이틀·OG·푸터는 "Joun Lawyers"로 혼재. 이메일 도메인은 수신 계정 문제로 `jounlawyer.com` 유지 결정(12.0h-1 참조)
 - **v1.0 신규 문구 검수** ⚠️ — "조은의 약속" 정성 문구 3종과 "주요 사례" 익명화 요약 5건은 개발 단계에서 작성한 초안. 실제 사무소 실무와 부합하는지 대표 검수 필요. 특히 사례 요약은 실제 사건을 특정할 수 있는 표현이 없는지 확인 요망
 
 ---
@@ -440,7 +461,7 @@ Home
 1. ~~**사무소 기본 정보**~~ → ✅ 확정 (v0.4): Suite 310, 33-43 Rowe St, Eastwood NSW 2122 / 0432 009 862 / info@jounlawyer.com / 월–금 9AM–5PM
 2. ~~**대표 정보**~~ → ✅ 확정 (v0.4, v0.9 추가): 자격번호 MARN 0741800 · JP No. 183656 반영. **대표자명 "박두우 법무사 (Dow Park)"** — About 섹션 프로필 카드에 이름·직함·간단한 소개 노출(v0.9). 프로필 사진은 ✅ 적용 (v0.6: `profile.png`)
 3. ~~**서비스 목록**~~ → ✅ 확정 (v0.4): 이민·법률 대부분 서비스 제공 — 현행 8개 카드 구성 유지
-4. ~~**도메인**~~ → ✅ 확정: **jounvisa.com** — canonical/OG/sitemap/robots/`SITE.url` 일괄 반영 완료 (이메일은 `info@jounlawyer.com` 유지)
+4. ~~**도메인**~~ → ✅ 확정 (v1.1): **jounvisa.com** — Vercel 등록·연결, canonical/OG/sitemap/robots/`SITE.url` 일괄 반영 및 배포 완료. 이메일은 수신 계정·FormSubmit 엔드포인트 유지를 위해 `info@jounlawyer.com` 그대로 사용
 5. **고객 후기**: 기존 후기 자료 보유 여부, 실명 공개 가능 여부 — v1.0에서 창작 후기를 익명화 사례 요약으로 대체(리스크 해소). 실제 후기 확보·동의 시 후기 섹션 복원 여부 결정
 6. ~~**영문 페이지** 필요 여부~~ → ✅ 확정·구현 완료 (v0.3: 영어 기본 + 한국어 토글)
 7. ~~**카카오톡 채널** 보유 여부~~ → ✅ 확정 (v0.4): 채널 없음 — 사이트에서 전면 제거
