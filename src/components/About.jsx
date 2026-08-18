@@ -1,7 +1,6 @@
 import { SITE } from '../data/content.js'
 import { useLang } from '../i18n/LanguageContext.jsx'
 import Reveal from './Reveal.jsx'
-import profile from '../assets/profile.webp'
 
 export default function About() {
   const { t } = useLang()
@@ -11,16 +10,6 @@ export default function About() {
     <section className="section section--fit" id="about">
       <div className="container">
         <div className="about__grid">
-          <Reveal className="about__portrait-wrap">
-            <div className="about__portrait">
-              <img src={profile} alt={about.portraitNote} width="880" height="1100" loading="lazy" />
-            </div>
-            <div className="about__badge">
-              <div className="about__badge-label">{about.badgeLabel}</div>
-              <div className="about__badge-value">{SITE.marn}</div>
-            </div>
-          </Reveal>
-
           <div>
             <Reveal>
               <p className="section-label">{about.label}</p>
@@ -33,6 +22,9 @@ export default function About() {
                 <p className="about__principal-name">
                   {about.principal.name}
                   <span className="about__principal-role">{about.principal.role}</span>
+                </p>
+                <p className="about__principal-credentials">
+                  {SITE.marn} · {SITE.jpNumber}
                 </p>
                 <p className="about__principal-intro">{about.principal.intro}</p>
               </div>
