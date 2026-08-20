@@ -60,6 +60,7 @@ export const CONTENT = {
       desc: 'Law and migration under one roof — from visa appeals to contracts, property and estates, your one-stop legal partner for the Korean-Australian community.',
       ctaPrimary: 'Book a Consultation',
       ctaSecondary: 'Explore Our Services',
+      badgeLabel: 'Registered Migration Agent',
     },
     about: {
       label: 'About Us — Greeting',
@@ -486,6 +487,7 @@ export const CONTENT = {
       desc: '법률과 이민을 한 곳에서 — 비자 재심부터 계약·부동산·상속까지, 한인 커뮤니티를 위한 원스톱 법률 파트너입니다.',
       ctaPrimary: '상담 예약하기',
       ctaSecondary: '서비스 살펴보기',
+      badgeLabel: '공인 이민법무사',
     },
     about: {
       label: '인사말 — Greeting',
