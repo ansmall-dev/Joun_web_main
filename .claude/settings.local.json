@@ -32,7 +32,16 @@
       "Bash(git push *)",
       "PowerShell(git push origin main)",
       "PowerShell(git -c credential.helper=manager push origin main)",
-      "Bash(curl -s https://jounvisa.com/sitemap.xml)"
+      "Bash(curl -s https://jounvisa.com/sitemap.xml)",
+      "PowerShell(git config user.name)",
+      "PowerShell(git config user.email)",
+      "PowerShell($g = Get-Command gh -ErrorAction SilentlyContinue; if \\($g\\) { $g.Source; gh auth status } else { \"gh not installed\" })",
+      "PowerShell($p=\"$env:APPDATA\\\\GitHub Desktop\\\\\"; if \\(Test-Path $p\\) { \"GitHub Desktop config found\" } else { \"no GitHub Desktop appdata\" }; Get-Content C:\\\\Users\\\\User\\\\Desktop\\\\Joun_web_main\\\\.gitignore)",
+      "PowerShell(git ls-remote https://github.com/dlehdgus1122/Joun_web_main.git 2>&1)",
+      "WebFetch(domain:github.com)",
+      "PowerShell(try { git config --system --get-all credential.helper } catch {}; \"---system done---\"; $gcm = Get-Command git-credential-manager -ErrorAction SilentlyContinue; if \\($gcm\\) { $gcm.Source } else { \"gcm not on PATH\" }; $p = \"C:\\\\Program Files\\\\Git\\\\mingw64\\\\bin\\\\git-credential-manager.exe\"; if \\(Test-Path $p\\) { \"GCM found: $p\" } else { \"no GCM at default path\" }; git --version)",
+      "PowerShell(git remote add personal https://github.com/dlehdgus1122/Joun_web_main.git)",
+      "PowerShell(git config credential.helper manager)"
     ]
   }
 }
